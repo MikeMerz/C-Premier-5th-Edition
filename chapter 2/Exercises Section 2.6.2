@@ -3,3 +3,107 @@ Exercise 2.41: Use your Sales_data class to rewrite the exercises in §
 your Sales_data class in the same file as your main function.
 
 1.51:
+#include <iostream>
+
+struct Sale_data {
+    std::string bookNo;
+    unsigned units_sold = 0;
+    double revenue = 0.0;
+};
+
+int main() {
+    Sale_data data;
+    double price;
+    std::cin>> data.bookNo >> data.units_sold >> price;
+    data.revenue = data.units_sold * price;
+    std::cout << data.bookNo << " " << data.units_sold << " " << data.revenue;
+    return 0;
+}
+
+1.5.2:
+#include <iostream>
+
+struct Sale_data {
+    std::string bookNo;
+    unsigned units_sold = 0;
+    double revenue = 0.0;
+};
+
+int main() {
+    Sale_data dataFirst, dataSecond;
+    double priceFirst, priceSecond;
+    std::cin>> dataFirst.bookNo >> dataFirst.units_sold >> priceFirst;
+    dataFirst.revenue = dataFirst.units_sold * priceFirst;
+
+    std::cin>> dataSecond.bookNo >> dataSecond.units_sold >> priceSecond;
+    dataSecond.revenue = dataSecond.units_sold * priceSecond;
+    if(dataFirst.bookNo == dataSecond.bookNo)
+    {
+        unsigned totalAmount = dataFirst.units_sold + dataSecond.units_sold;
+        double totalRevenue = dataFirst.revenue + dataSecond.revenue;
+        std::cout << dataSecond.bookNo << " " << dataSecond.units_sold << " " << dataSecond.revenue;
+        std::cout << dataFirst.bookNo << " " << dataFirst.units_sold << " " << dataFirst.revenue;
+
+        if(totalAmount != 0)
+            std::cout << totalRevenue / totalAmount << std::endl;
+        else
+            std::cout << "(no sales)" << std::endl;
+        return 0;
+    }
+    else
+    {
+        std::cout << "ISBN doesn't match" << '\n';
+        return -1;
+    }
+}
+
+1.6:
+#include <iostream>
+
+struct Sale_data {
+    std::string bookNo;
+    unsigned units_sold = 0;
+    double revenue = 0.0;
+};
+
+int main() {
+    Sale_data total;
+    double totalPrice;
+    if (std::cin >> total.bookNo >> total.units_sold >> totalPrice) {
+        total.revenue = total.units_sold * totalPrice;
+
+        Sale_data trans;
+        double transPrice;
+        while (std::cin >> trans.bookNo >> trans.units_sold >> transPrice) {
+            trans.revenue = trans.units_sold * transPrice;
+
+            if (total.bookNo == trans.bookNo) {
+                total.units_sold += trans.units_sold;
+                total.revenue += trans.revenue;
+            }
+            else {
+                std::cout << total.bookNo << " " << total.units_sold << " " << total.revenue << " ";
+                if (total.units_sold != 0)
+                    std::cout << total.revenue / total.units_sold << std::endl;
+                else
+                    std::cout << "(no sales)" << std::endl;
+
+                total.bookNo = trans.bookNo;
+                total.units_sold = trans.units_sold;
+                total.revenue = trans.revenue;
+            }
+        }
+
+        std::cout << total.bookNo << " " << total.units_sold << " " << total.revenue << " ";
+        if (total.units_sold != 0)
+            std::cout << total.revenue / total.units_sold << std::endl;
+        else
+            std::cout << "(no sales)" << std::endl;
+
+        return 0;
+    }
+    else {
+        std::cerr << "No data?!" << std::endl;
+        return -1;  // indicate failure
+    }
+}
