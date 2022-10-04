@@ -1,0 +1,8 @@
+Exercise 3.11: Is the following range for legal? If so, what is the type of
+c?
+
+const string s = "Keep out!";
+for (auto &c : s) { /* ... */ }
+
+Answer:
+The following range for is legal and c is of type const char &.
