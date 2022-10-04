@@ -15,7 +15,7 @@ void isEqual(const string &firstString, const string &secondString) {
     }
     else
     {
-        firstString > secondString ? cout << "First string is larger" : cout << "Second string is larger";
+        firstString > secondString ? cout << "First string is larger" << endl : cout  << "Second string is larger" << endl;
     }
 }
 
@@ -26,7 +26,7 @@ void isSizeEqual(const string &firstString, const string &secondString) {
     }
     else
     {
-        firstString.size() > secondString.size() ? cout << "First string is larger" : cout << "Second string is larger";
+        firstString.size() > secondString.size() ? cout << "First string is larger" << endl : cout << "Second string is larger" << endl;
     }
 }
 
@@ -38,6 +38,15 @@ int main() {
         isSizeEqual(firstString, secondString);
     }
 
+    //Test
 
+    isEqual("hi", "bi"); // First string is large
+    isSizeEqual("hi", "bi"); //Sizes are equal
+
+    isEqual("hi", "hiya"); // Second string is larger
+    isSizeEqual("hi", "hiya"); // Second string is larger
+
+    isEqual("", "hiya"); // Second string is larger
+    isSizeEqual("", "hiya"); // Second string is larger
     return 0;
 }
