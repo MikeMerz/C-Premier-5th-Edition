@@ -1,0 +1,36 @@
+Exercise 3.1: Rewrite the exercises from § 1.4.1 (p. 13) and § 2.6.2 (p. 76)
+with appropriate using declarations
+
+
+#include <iostream>
+using std::cout, std::endl;
+int main()
+{
+int sum = 0, val = 1;
+// keep executing the while as long as val is less than or equal to 10
+while (val <= 10) {
+sum += val; // assigns sum + val to sum
+++val; // add 1 to val
+}
+cout << "Sum of 1 to 10 inclusive is " << sum << endl;
+return 0;
+}
+
+#include <iostream>
+#include "Sales_item.h"
+
+using std::cin, std::cout, std::endl, std::cerr;
+int main()
+{
+Sales_item item1, item2;
+cin >> item1 >> item2;
+// first check that item1 and item2 represent the same book
+if (item1.isbn() == item2.isbn()) {
+cout << item1 + item2 << endl;
+return 0; // indicate success
+} else {
+cerr << "Data must refer to same ISBN"
+<< endl;
+return -1; // indicate failure
+}
+}
