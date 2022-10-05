@@ -1,0 +1,18 @@
+Exercise 3.13: How many elements are there in each of the following
+vectors? What are the values of the elements?
+(a) vector<int> v1;
+(b) vector<int> v2(10);
+(c) vector<int> v3(10, 42);
+(d) vector<int> v4{10};
+(e) vector<int> v5{10, 42};
+(f) vector<string> v6{10};
+(g) vector<string> v7{10, "hi"};
+
+Answer:
+a)v1 is an empty vector.
+b)v2 is a vector that hold 10 elements whose value is 0.
+c)v3 is a vector that hold 10 elements whose value is 42.
+d)v4 is a vector that hold 1 element whose value is 10.
+e)v5 is a vector that hold 2 elements whose value is 10 and 42.
+f)v6 is a vector that hold 10 elements whose value is an empty string.
+g)v7 is a vector that hold 10 elements whose value is "hi".
