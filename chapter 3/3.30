@@ -1,0 +1,11 @@
+Exercise 3.30: Identify the indexing errors in the following code:
+
+
+constexpr size_t array_size = 10;
+int ia[array_size];
+for (size_t ix = 1; ix <= array_size; ++ix)
+ia[ix] = ix;
+
+Answer:
+The first error is that we don't access the first element in the array which is located at index 0, and on the last iteration of the for loop
+we will access memory that is outside the range of the array.
