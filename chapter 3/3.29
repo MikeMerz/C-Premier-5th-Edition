@@ -1,0 +1,7 @@
+Exercise 3.29: List some of the drawbacks of using an array instead of a
+vector.
+
+Answer:
+1)Copy/Assignment is illegal for arrays.
+2)The size of the array is fixed and must be known at compile time.
+3)When using array for string the null terminator has to be taken into account.
