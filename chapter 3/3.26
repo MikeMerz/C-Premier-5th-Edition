@@ -1,0 +1,6 @@
+Exercise 3.26: In the binary search program on page 112, why did we write
+mid = beg + (end - beg) / 2; instead of mid = (beg + end)
+/2;?
+
+Answer:
+Using (beg + end) could potentially cause an overflow for very large vectors and there is no + operator for adding two iterators.
