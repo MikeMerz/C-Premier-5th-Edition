@@ -1,0 +1,7 @@
+Exercise 3.38: In this section, we noted that it was not only illegal but
+meaningless to try to add two pointers. Why would adding two pointers be
+meaningless?
+
+Answer:
+Pointers hold an address this is why adding two pointers will cause us to add their respective address and we could reach an unknown area in memory and we won't be able
+to know what the pointer points to.
