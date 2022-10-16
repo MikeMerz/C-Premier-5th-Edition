@@ -1,0 +1,12 @@
+Exercise 3.37: What does the following program do?
+
+const char ca[] = {'h', 'e', 'l', 'l', 'o'};
+const char *cp = ca;
+while (*cp) {
+cout << *cp << endl;
+++cp;
+}
+
+Answer:
+The following program will start by printing hello letter by letter but because there is no null terminator at the end the program will continue to print the following 
+areas in the memory until it will encounter a null terminator.
