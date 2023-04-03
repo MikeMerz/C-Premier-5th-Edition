@@ -1,0 +1,6 @@
+Exercise 4.14: Explain what happens in each of the if tests:
+if (42 = i) // ...
+if (i = 42) // ...
+
+Answer:
+The first if is illegal since the left operand cannot be lvalue, and the second if i will get the value 42 and since its not zero the condition will be true and we will enter the if.
