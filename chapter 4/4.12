@@ -1,0 +1,5 @@
+Exercise 4.12: Assuming i, j, and k are all ints, explain what i != j <
+k means.
+
+Answer:
+It first evaluates if j is smaller than k getting a bool expression then this expression will be converted to int and i != 0 or i != 1 will be evaluated.
