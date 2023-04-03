@@ -1,0 +1,8 @@
+Exercise 4.13: What are the values of i and d after each assignment?
+int i; double d;
+(a) d = i = 3.5;
+(b) i = d = 3.5;
+
+Answer:
+a) i will hold 3 and d will hold 3.0.
+b)d will hold 3.5 and i will hold 3
