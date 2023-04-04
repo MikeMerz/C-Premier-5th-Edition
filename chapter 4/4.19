@@ -1,0 +1,14 @@
+Exercise 4.19: Given that ptr points to an int, that vec is a
+vector<int>, and that ival is an int, explain the behavior of each of
+these expressions. Which, if any, are likely to be incorrect? Why? How might
+each be corrected?
+(a) ptr != 0 && *ptr++
+(b) ival++ && ival
+(c) vec[ival++] <= vec[ival]
+
+Answer:
+a)First ptr will be checked for null, if it's not null then ptr will be derefrenced and if it's 0 the expression will be evaluated as false and true otherwise,
+it can be corrected ptr != 0 && *++ptr.
+b)First ival will be incremented and a copy of the unincremented ival will be returned and will be compared to the incremented ival which will produce false.
+c)First ival will be incremented and a copy of the unincremented ival will be returned for vec[ival++] then the left operand for <= will be vec[ival] while the right 
+operand will be vec[ival+1] so the expression checks whether the next element in the vector is bigger than the current element.
