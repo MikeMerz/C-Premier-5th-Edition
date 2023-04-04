@@ -3,9 +3,9 @@ elements in a vector<int> that have odd value and double the value of
 each such element
 
 Answer:
-for(auto iter = vec.begin(); iter != vec.end();++iter)
+for(int &num : vec)
 {
-  *iter = (*iter) % 2 == 0 ? *iter : (*iter)*=2;
+  num = num % 2 == 0 ? num : num*=2;
 }
 
 std::for_each(vec.begin(),vec.end(),[](int &num)
