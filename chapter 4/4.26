@@ -1,0 +1,6 @@
+Exercise 4.26: In our grading example in this section, what would happen if
+we used unsigned int as the type for quiz1?
+
+Answer:
+The number of bits that quiz1 will have will be at least 16 and thus we couldn't keep track after all of the students and when shifting left more for more than 
+16 positions the operation will be undefined.
