@@ -1,0 +1,5 @@
+Exercise 4.17: Explain the difference between prefix and postfix increment
+
+Answer:
+
+Prefix increment first increments the operand and then returns that same operand as lvalue while postfix increments and then returns a copy of the unincremented operand as a rvalue.
