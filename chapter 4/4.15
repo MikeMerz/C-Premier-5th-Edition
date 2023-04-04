@@ -1,0 +1,11 @@
+Exercise 4.15: The following assignment is illegal. Why? How would you
+correct it?
+
+double dval; int ival; int *pi;
+dval = ival = pi = 0;
+
+Answer:
+The assignment is illegal since the right operand is of type int* and there is no valid conversion to int.
+
+dval = ival = 0;
+pi = 0;
