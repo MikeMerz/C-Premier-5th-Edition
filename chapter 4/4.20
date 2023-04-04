@@ -1,0 +1,17 @@
+Exercise 4.20: Assuming that iter is a vector<string>::iterator,
+indicate which, if any, of the following expressions are legal. Explain the
+behavior of the legal expressions and why those that aren’t legal are in error.
+(a) *iter++;
+(b) (*iter)++;
+(c) *iter.empty()
+(d) iter->empty();
+(e) ++*iter;
+(f) iter++->empty();
+
+Answer:
+a)Expression is legal and will result in the letter that the unincremented version of iter points to and wont change the string.
+b)Expression is legal and will increment one to the letter that iter points to and will change the string.
+c)Expression is not legal since iter has no member named empty.
+d)Expression is not legal since iter points to a char member which doesn't have member named empty.
+e)Expression is legal and will result in the letter that iter points to changing to the next letter.
+f)Expression is not legal since iter points to a char and the -> operand will derefrence iter we will get a char which doesn't have member named empty.
