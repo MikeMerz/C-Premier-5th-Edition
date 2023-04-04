@@ -1,0 +1,10 @@
+Exercise 4.23: The following expression fails to compile due to operator
+precedence. Using Table 4.12 (p. 166), explain why it fails. How would you
+fix it?
+
+string s = "word";
+string pl = s + s[s.size() - 1] == 's' ? "" : "s" ;
+
+Answer:
+Since unary plus has higher precedence than the conditional operator so we get left operand of type string and right operand of type char, we can fix this
+by adding parentheses : string pl = s + (s[s.size() - 1] == 's' ? "" : "s" );
