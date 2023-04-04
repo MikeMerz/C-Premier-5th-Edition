@@ -1,0 +1,5 @@
+Exercise 4.18: What would happen if the while loop on page 148 that
+prints the elements from a vector used the prefix increment operator?
+
+Answer:
+The while loop will skip the first element and will print all the other elements and one past the last element.
