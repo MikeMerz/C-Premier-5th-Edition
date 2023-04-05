@@ -1,0 +1,11 @@
+Exercise 4.28: Write a program to print the size of each of the built-in
+types
+
+Answer:
+std::cout<< sizeof(int);
+std::cout<< sizeof(char);
+std::cout<< sizeof(double);
+std::cout<< sizeof(float);
+std::cout<< sizeof(short);
+std::cout<< sizeof(long);
+std::cout<< sizeof(long long);
