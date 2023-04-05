@@ -1,0 +1,10 @@
+Exercise 4.25: What is the value of ~'q' << 6 on a machine with 32-bit
+ints and 8 bit chars, that uses Latin-1 character set in which 'q' has the
+bit pattern 01110001?
+
+Answer:
+q will change to 00000000 00000000 00000000 01110001
+so ~q wil result:
+11111111 11111111 11111111 10001110
+and shifting by 6 will result in:
+11111111 11111111 11100011 10000000
