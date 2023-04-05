@@ -1,0 +1,15 @@
+Exercise 4.29: Predict the output of the following code and explain your
+reasoning. Now run the program. Is the output what you expected? If not,
+figure out why.
+
+int x[10]; int *p = x;
+cout << sizeof(x)/sizeof(*x) << endl;
+cout << sizeof(p)/sizeof(*p) << endl;
+
+Answer:
+The program will print:
+10
+2
+
+At first sizeof(x) will return 40 since the array holds 10 ints when each int is 4 and sizeof(*x) will return 4 since it returns the size of the type that the array holds
+and sizeof(p) will return 8 since it is the size of a pointer and sizeof(*p) will return 4 since p points to an int and hence we will get 40/4=10 and 8/4=2.
