@@ -1,0 +1,6 @@
+Exercise 4.38: Explain the following expression:
+
+double slope = static_cast<double>(j/i);
+
+Answer:
+j is integraly divided by i and then cast to double.
