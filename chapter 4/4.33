@@ -1,0 +1,8 @@
+Exercise 4.33: Using Table 4.12 (p. 166) explain what the following
+expression does:
+
+someValue ? ++x, ++y : --x, --y
+
+Answer:
+The code is equvilant to (someValue ? (++x,++y) :--x), --y;
+meaning that if someValue is true both x and y will be incremented and then y will be decremented and if someValue is false then both x and y will be decremented.
