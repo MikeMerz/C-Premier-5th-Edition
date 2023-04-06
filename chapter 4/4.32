@@ -1,0 +1,12 @@
+Exercise 4.32: Explain the following loop.
+
+constexpr int size = 5;
+int ia[size] = {1,2,3,4,5};
+for (int *ptr = ia, ix = 0;
+ix != size && ptr != ia+size;
+++ix, ++ptr) { /* ... */ }
+
+Answer:
+
+The loops first assigns to ptr the address of ia and inits ix to zero and for each iteration it adds one to ix and moves the ptr pointer one iteration foward until both are
+at the end of the array.
