@@ -1,0 +1,28 @@
+Exercise 5.11: Modify our vowel-counting program so that it also counts the
+number of blank spaces, tabs, and newlines read.
+
+Answer:
+unsigned aCnt = 0, eCnt = 0, iCnt = 0, oCnt = 0, uCnt = 0,spaceCnt = 0, tabCnt = 0, newLineCnt = 0;
+char ch;
+while (cin >> ch) {
+// if ch is a vowel, increment the appropriate counter
+ch = tolower(ch);
+switch (ch) {
+if(ch == 'a')
+++aCnt;
+else if(ch == 'e')
+++eCnt;
+else if(ch == 'i')
+++iCnt;
+else if(ch == 'o')
+++oCnt;
+else if(ch == 'u')
+++uCnt;
+}
+else if(ch == ' ')
+++spaceCnt;
+else if(ch == '\t')
+++tabCnt;
+else if(ch == '\n')
+++newLineCnt;
+}
