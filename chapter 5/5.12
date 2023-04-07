@@ -1,0 +1,35 @@
+Exercise 5.12: Modify our vowel-counting program so that it counts the
+number of occurrences of the following two-character sequences: ff, fl,
+and fi.
+
+Answer:
+unsigned aCnt = 0, eCnt = 0, iCnt = 0, oCnt = 0, uCnt = 0,spaceCnt = 0, tabCnt = 0, newLineCnt = 0, fiCnt = 0,flCnt = 0,ffCnt =0;
+char ch;
+char lastCh;
+while (cin >> ch) {
+// if ch is a vowel, increment the appropriate counter
+ch = tolower(ch);
+if(ch == 'a')
+++aCnt;
+else if(ch == 'e')
+++eCnt;
+else if(ch == 'i')
+++iCnt;
+else if(ch == 'o')
+++oCnt;
+else if(ch == 'u')
+++uCnt;
+else if(ch == ' ')
+++spaceCnt;
+else if(ch == '\t')
+++tabCnt;
+else if(ch == '\n')
+++newLineCnt;
+else if(lastCh == 'f' && ch =='l')
+++flCnt;
+else if(lastCh == 'f' && ch =='i')
+++fiCnt;
+if(lastCh == 'f' && ch =='f')
+++ffCnt;
+lastCh = ch;
+}
