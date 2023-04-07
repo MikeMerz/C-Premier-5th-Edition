@@ -1,0 +1,21 @@
+Exercise 5.9: Write a program using a series of if statements to count the
+number of vowels in text read from cin.
+
+Answer:
+unsigned aCnt = 0, eCnt = 0, iCnt = 0, oCnt = 0, uCnt = 0;
+char ch;
+while (cin >> ch) {
+// if ch is a vowel, increment the appropriate counter
+switch (ch) {
+if(ch == 'a')
+++aCnt;
+else if(ch == 'e')
+++eCnt;
+else if(ch == 'i')
+++iCnt;
+else if(ch == 'o')
+++oCnt;
+else if(ch == 'u')
+++uCnt;
+}
+}
