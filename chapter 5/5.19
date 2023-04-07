@@ -1,0 +1,12 @@
+Exercise 5.19: Write a program that uses a do while loop to repetitively
+request two strings from the user and report which string is less than
+the other.
+
+Answer:
+  std::string s1, s2;
+  std::cin >> s1 >> s2;
+  do
+  {
+    std::cout << s1 == s2 ? "Equal" : s1 < s2 ? "First" : "Second";
+  }
+  while(std::cin >> s1 >> s2)
