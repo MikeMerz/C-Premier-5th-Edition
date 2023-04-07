@@ -1,0 +1,39 @@
+Exercise 5.18: Explain each of the following loops. Correct any problems
+you detect.
+
+(a) do
+int v1, v2;
+cout << "Please enter two numbers to sum:" ;
+if (cin >> v1 >> v2)
+cout << "Sum is: " << v1 + v2 << endl;
+while (cin);
+
+(b) do {
+// . . .
+} while (int ival = get_response());
+
+(c) do {
+int ival = get_response();
+} while (ival);
+
+Answer:
+a)need curly braces to scope the do statement
+do
+{
+int v1, v2;
+cout << "Please enter two numbers to sum:" ;
+if (cin >> v1 >> v2)
+cout << "Sum is: " << v1 + v2 << endl;
+}
+while (cin);
+b)Can't define variables in the while condition
+int ival;
+do {
+// . . .
+} while (ival = get_response());
+
+c)Variable used in the condition must be defines outside of the do statement.
+int ival;
+ do {
+ival = get_response();
+} while (ival);
