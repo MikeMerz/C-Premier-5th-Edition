@@ -7,7 +7,6 @@ char ch;
 while (cin >> ch) {
 // if ch is a vowel, increment the appropriate counter
 ch = tolower(ch);
-switch (ch) {
 if(ch == 'a')
 ++aCnt;
 else if(ch == 'e')
@@ -25,4 +24,3 @@ else if(ch == '\t')
 ++tabCnt;
 else if(ch == '\n')
 ++newLineCnt;
-}
