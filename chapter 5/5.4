@@ -1,0 +1,14 @@
+Exercise 5.4: Explain each of the following examples, and correct any
+problems you detect.
+(a) while (string::iterator iter != s.end()) { /* . . . */ }
+(b) while (bool status = find(word)) { /* . . . */ }
+if (!status) { /* . . . */ }
+
+Answer:
+a)iter is not initialized and thus the expression is illegal.
+string::iterator iter = s.begin();
+while (iter != s.end()) { /* . . . */ }
+b)status is defined inside the while loop so accessing it after the loop is illegal.
+bool status;
+while (status = find(word)) { /* . . . */ }
+if (!status) { /* . . . */ }
