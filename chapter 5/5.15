@@ -1,0 +1,22 @@
+Exercise 5.15: Explain each of the following loops. Correct any problems
+you detect.
+
+(a) for (int ix = 0; ix != sz; ++ix) { /* . . . */ }
+if (ix != sz)
+// . . .
+
+(b) int ix;
+for (ix != sz; ++ix) { /* . . . */ }
+
+(c) for (int ix = 0; ix != sz; ++ix, ++ sz) { /* . . . */ }
+Answer:
+a)Variable used outside of the for scope.
+int ix=0;
+for (ix = 0; ix != sz; ++ix) 
+{}
+if (ix != sz)
+b)When init it not used we need to add a null statement.
+int ix;
+for (;ix != sz; ++ix) { /* . . . */ }
+c)The loop will never stop since we increment both ix and sz the condition will not be met.
+for (int ix = 0; ix != sz; ++ix) { /* . . . */ }
