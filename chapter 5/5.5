@@ -1,0 +1,16 @@
+Exercise 5.5: Using an if–else statement, write your own version of the
+program to generate the letter grade from a numeric grade.
+
+Answer:
+  const std::vector<std::string> scores = { "F", "D", "C", "B", "A", "A++"};
+  std::string lettergrade;
+  int grade;
+  std::cin >> grade;
+  if (grade >= 60)
+  {
+    lettergrade = scores[(grade - 50) / 10];
+   }
+  else
+  {
+    lettergrade = scores[0];
+   }
