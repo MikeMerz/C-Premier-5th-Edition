@@ -1,0 +1,36 @@
+Exercise 6.4: Write a function that interacts with the user, asking for a
+number and generating the factorial of that number. Call this function from
+main.
+
+Answer:
+int fact(int n)
+{
+  if(n<0){throw invalid_argument("Negative Factorial");}
+  int factorial = 1;
+  for(int i=1;i<=n;++i)
+  {
+    factorial*=i;  
+  }
+  return factorial;
+}
+
+int main()
+{
+  int n;
+  std::cin>>n;
+  try
+  {
+    if(fact(5) != 120)
+    {
+      std::cout<<"Test 1 Failed";
+    }
+    else
+    {
+      std::cout<<"Test 1 Passed";
+    }
+   }catch(invalid_argument &e)
+   {
+    std::cout<<"Factorial should be non-negative";
+   }
+    
+}
