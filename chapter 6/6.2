@@ -1,0 +1,26 @@
+Exercise 6.2: Indicate which of the following functions are in error and why.
+Suggest how you might correct the problems.
+(a) int f() {
+string s;
+// ...
+return s;
+}
+(b) f2(int i) { /* ... */ }
+(c) int calc(int v1, int v1) /* ... */ }
+(d) double square(double x) return x * x;
+
+Answer:
+a)The return type doesn't match the object type that the functions returns and there is no viable conversion between int and string
+string f() {
+string s;
+// ...
+return s;
+}
+
+b)No return type is mentioned.
+int f2(int i) { /* ... */ }
+c)Both parameters have the same name
+int calc(int v1, int v2) /* ... */ }
+
+d)Function body doesn't have a specified block, adding curly braces will create the block.
+double square(double x) {return x * x};
