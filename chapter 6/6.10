@@ -4,18 +4,18 @@ ints. Test the function by calling it and printing the swapped values.
 Answer:
 #include <iostream>
 
-void swap(int *a, int *b)
+void swap(int &a, int &b)
 {
-  int temp = *a;
-  *a = *b;
-  *b = temp;
+  int temp = a;
+  a = b;
+  b = temp;
 }
 
 int main()
 {
   int a = 2;
   int b = 3;
-  swap(&a, &b);
+  swap(a, b);
   std::cout<< "a is: "<< a <<std::endl;
   std::cout<< "b is: "<< b <<std::endl;
   return 0;
