@@ -1,3 +1,5 @@
+#include "Chapter6.h"
+
 int fact(int n)
 {
   int factorial = 1;
