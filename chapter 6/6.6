@@ -1,0 +1,12 @@
+Exercise 6.6: Explain the differences between a parameter, a local variable,
+and a local static variable. Give an example of a function in which each
+might be useful.
+
+Answer:
+Parameter is a local variable that is defined in the functions declaration and is initialized when the function is called with the arguments given
+and it exists until we exit the function, local variable is defined inside the block of the function and it is initialized when we pass through the declaration
+and exists in the same scope and same lifetime as the parameter, however the local static variable is initialized the first time we reach the line it is defined, and is terminated
+only when we exit the program, each function call will access the same variable, it's local to the functions scope and is value initialized if it doesn't have an initializer.
+
+Parameter is useful for almost every program , local variable is useful when we need to access a variable only inside the body of a function such as a counter, and local static
+variable can be useful when we want to track the number of times the function has been called.
