@@ -1,0 +1,6 @@
+Exercise 6.13: Assuming T is the name of a type, explain the difference
+between a function declared as void f(T) and void f(T&).
+
+Answet:
+Function that is declared with f(T) passes a copy of an object of type T and any changes will be on the local copy of T while the declaration f(T&) passes the object of
+type T itself and any changes will affect the same object that was passed.
