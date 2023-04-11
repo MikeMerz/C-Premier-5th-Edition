@@ -1,0 +1,6 @@
+Exercise 6.14: Give an example of when a parameter should be a reference
+type. Give an example of when a parameter should not be a reference.
+
+Answer:
+Parameter should be a refrence when we want to change the state of the object that is passed such as concatenating object to a data structure, while a parameter should not
+be a refrence when we don't want to change the state of that object such passing the size of the data structure in oreder to iterate it without changing the value.
