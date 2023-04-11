@@ -1,0 +1,10 @@
+Exercise 6.15: Explain the rationale for the type of each of find_char’s
+parameters In particular, why is s a reference to const but occurs is a
+plain reference? Why are these parameters references, but the char
+parameter c is not? What would happen if we made s a plain reference?
+What if we made occurs a reference to const?
+
+Answer:
+s is refrence to const so we won't change the string by mistake and occurs is not const since we increment it and change it's state, s is refrence so we wont copy
+it each time we call find_char and occurs is refrence so when we increment it the same occurs will change and not a copy of it, while c isn't refrence since it's cheap 
+we couldn't use c as a plain refrence since we don't want it to change by mistake inside our function however it can be refrence to const becuase the const will protect it from changing.
