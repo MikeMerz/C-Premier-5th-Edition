@@ -1,0 +1,35 @@
+Exercise 6.23: Write your own versions of each of the print functions
+presented in this section. Call each of these functions to print i and j
+defined as follows:
+int i = 0, j[2] = {0, 1};
+
+Answer:
+void print(const int*)
+{
+  std::cout << i << std::endl;
+}
+
+void print(const int *beg, const int *end)
+{
+
+while (beg != end)
+cout << *beg++ << endl; 
+}
+
+void print(const int ia[], size_t size)
+{
+for (size_t i = 0; i != size; ++i) {
+cout << ia[i] << endl;
+}
+}
+
+int main()
+{
+  int i = 0, j[2] = {0, 1};
+  print(i);
+
+  print(std::begin(j), std::end(j));
+  print(j, std::end(j) - std::begin(j));
+  print(j);
+  return 0;
+}
