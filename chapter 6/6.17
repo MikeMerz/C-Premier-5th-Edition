@@ -1,0 +1,21 @@
+Exercise 6.17: Write a function to determine whether a string contains
+any capital letters. Write a function to change a string to all lowercase. Do
+the parameters you used in these functions have the same type? If so, why?
+If not, why not?
+
+Answer:
+bool isCapital(const string& s)
+{
+  return std::any_of(s.begin(), s.end(),[](char c){
+    return isupper(c);
+  });
+}
+
+void lowerString(string& s)
+{
+    std::for_each(s.begin(), s.end(), [](char& c){
+    c = tolower(c);
+  });
+}
+
+The parameters have a different type since in the first function we don't change the string however in the second function we lower the characters of the string.
