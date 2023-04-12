@@ -1,0 +1,8 @@
+Exercise 6.16: The following function, although legal, is less useful than it
+might be. Identify and correct the limitation on this function:
+
+bool is_empty(string& s) { return s.empty(); }
+
+Answer:
+We can't pass string literals or any const strings so we need to change the declaration to
+bool is_empty(const string& s) { return s.empty(); }
