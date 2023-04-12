@@ -1,0 +1,9 @@
+Exercise 6.22: Write a function to swap two int pointers
+
+Answer:
+void swapPtr(int **first, int **second)
+{
+  int *temp = *first;
+  *first = *second;
+  *second = temp;
+}
