@@ -1,0 +1,13 @@
+Exercise 6.26: Write a program that accepts the options presented in this
+section. Print the values of the arguments passed to main.
+
+Answer:
+int main(int argc, char **argv)
+{
+  if(argc != 5) return -1;
+  for(int i=1;i < argc;++i) // i=0 if we want to print the programs name , i=1 otherwise
+  {
+    std::cout << argv[i] << std::endl;
+  }
+  return 0;
+}
