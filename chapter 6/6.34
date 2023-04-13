@@ -1,0 +1,6 @@
+Exercise 6.34: What would happen if the stopping condition in factorial
+were
+if (val != 0)
+
+Answer:
+Using this condition will cause an endless recursion loop for any negative value for val , since we only check if it's 0 and each call we decrement it by one, 0 will never be reached.
