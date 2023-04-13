@@ -14,3 +14,5 @@ decltype(s) &arrRef(){};
 type alias:
 typedef string arrtS[10];
 arrS& str();
+
+I prefer the trailing version since in my opinion it's the easisest one to understand.
