@@ -1,0 +1,12 @@
+Exercise 6.32: Indicate whether the following function is legal. If so, explain
+what it does; if not, correct any errors and then explain it.
+
+int &get(int *arry, int index) { return arry[index]; }
+int main() {
+int ia[10];
+for (int i = 0; i != 10; ++i)
+get(ia, i) = i;
+}
+
+Answer:
+The function is legal and assigns to each element in the array its index. Get returns a refrence on line 8 and thus a lvalue is returned and can be assigned.
