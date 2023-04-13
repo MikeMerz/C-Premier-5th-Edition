@@ -1,0 +1,15 @@
+Exercise 6.33: Write a recursive function to print the contents of a vector.
+
+Answer:
+
+void vecRec(std::vector<int> vec,int loc)
+{
+  if(loc <0)return;
+  std::cout << vec[loc] << std::endl;
+  vecRec(vec, --loc);
+}
+
+int main() {
+std::vector<int> v = {1,2,3};
+vecRec(v,v.size() - 1);
+}
