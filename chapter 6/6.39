@@ -1,0 +1,18 @@
+Exercise 6.39: Explain the effect of the second declaration in each one of
+the following sets of declarations. Indicate which, if any, are illegal.
+(a) int calc(int, int);
+int calc(const int, const int);
+
+(b) int get();
+double get();
+
+(c) int *reset(int *);
+double *reset(double *);
+
+Answer:
+a)The second declaration is the same the first one since top level const is ignored.
+
+b)The second declaration is not legal since both declarations have the same name and same parameters and are only different in
+their return type.
+
+c)The second declaration defines an overload to reset.
