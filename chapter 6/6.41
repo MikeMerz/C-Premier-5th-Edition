@@ -1,0 +1,14 @@
+Exercise 6.41: Which, if any, of the following calls are illegal? Why? Which,
+if any, are legal but unlikely to match the programmer’s intent? Why?
+
+char *init(int ht, int wd = 80, char bckgrnd = ' ');
+(a) init();
+(b) init(24,10);
+(c) init(14, '*');
+
+Answer:
+a)The call is not legal since ht is not a default parameter and a value must be provided.
+b)Call is legal.
+c)Call is legal howver the first parameter will be applied to ht and the char '*' will be converted to an int
+and applied to wd, which is probably not what the programer intened since he passed a char he probably wanted it to
+override bckgrnd.
