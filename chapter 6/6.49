@@ -1,0 +1,6 @@
+Exercise 6.49: What is a candidate function? What is a viable function?
+
+Answer:
+Candidate function is a function with a matching name to our function call with a visible declaration at the calling point
+Viable function is a function with the same name and same number of arguments where each argument must match or be convertible to
+the type of it's corresponding parameter.
