@@ -1,0 +1,10 @@
+Exercise 6.43: Which one of the following declarations and definitions would
+you put in a header? In a source file? Explain why.
+(a) inline bool eq(const BigInt&, const BigInt&) {...}
+
+(b) void putValues(int *arr, int size);
+
+Answer:
+a)I would put both the declaration and definition in the header file since it is inlined.
+
+b)I would put the declaration in the header file and the definition is some other cpp file.
