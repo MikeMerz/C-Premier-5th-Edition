@@ -1,0 +1,10 @@
+Exercise 6.52: Given the following declarations,
+void manip(int, int);
+double dobj;
+what is the rank (§ 6.6.1, p. 245) of each conversion in the following calls?
+(a) manip('a', 'z');
+(b) manip(55.4, dobj);
+
+Answer:
+a)Is ranked at 3 since there is a promotion from the chars (a,z) to an int.
+b)Is ranked at 4, arithmetic conversion since the double is converted to an int.
