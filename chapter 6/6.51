@@ -1,0 +1,19 @@
+Exercise 6.51: Write all four versions of f. Each function should print a
+distinguishing message. Check your answers for the previous exercise. If your
+answers were incorrect, study this section until you understand why your
+answers were wrong.
+
+Answer:
+void f() {
+  std::cout << " called f()" << std::endl;
+}
+
+void f(int i) {
+  std::cout << " called f(int)" << std::endl;
+}
+void f(int a, int b) {
+  std::cout << " called f(int, int)" << std::endl;
+}
+void f(double d, double d2 = 3.14) {
+  std::cout << " called f(double, double)" << std::endl;
+}
