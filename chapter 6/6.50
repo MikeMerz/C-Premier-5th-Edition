@@ -1,0 +1,18 @@
+Exercise 6.50: Given the declarations for f from page 242, list the viable
+functions, if any for each of the following calls. Indicate which function is the
+best match, or if the call is illegal whether there is no match or why the call
+is ambiguous.
+(a) f(2.56, 42)
+(b) f(42)
+(c) f(42, 0)
+(d) f(2.56, 3.14)
+
+Answer:
+a)The call is ambiguous since we have two function that are both viable but we don't have a best match function since eatch paratemter
+is best match for a different function, one for f(double, double) and the other is for f(int,int).
+
+b)There is only two viable functions,f(int) and f(double, double=3.14) and the best match is f(int).
+
+c)There are two viable function, f(double, double = 3.14) and f(int,int) and the best match is f(int, int).
+
+d)There are two viable function, both f(int, int) and f(double, double) and since both parameters are double the exact match is f(double,double).
