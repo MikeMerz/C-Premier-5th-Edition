@@ -1,0 +1,13 @@
+Exercise 6.53: Explain the effect of the second declaration in each one of
+the following sets of declarations. Indicate which, if any, are illegal.
+(a) int calc(int&, int&);
+int calc(const int&, const int&);
+(b) int calc(char*, char*);
+int calc(const char*, const char*);
+(c) int calc(char*, char*);
+int calc(char* const, char* const);
+
+Answer:
+a)The declaration is legal and is overloaded for const.
+b)Declaration is legal since the second declaration adds a low-level const which differs from the first declaration and is overloaded.
+c)The declaration is illegal since calling calc adds a top-level const that will cause the call to become ambigious.
