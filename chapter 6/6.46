@@ -1,0 +1,5 @@
+Exercise 6.46: Would it be possible to define isShorter as a constexpr?
+If so, do so. If not, explain why not.
+
+Answer:
+It is possible to define as constexpr since the return type can be considered as a const expression.
