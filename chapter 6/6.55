@@ -1,0 +1,16 @@
+Exercise 6.55: Write four functions that add, subtract, multiply, and divide
+two int values. Store pointers to these values in your vector from the
+previous exercise.
+
+Answer:
+int substract(int a, int b){return a-b;}
+int add(int a,int b){return a+b};
+int multiply(int a, int b){return a*b};
+int divide(int a, int b){return a/b;} //for b not equal to zero
+
+std::vector<int (*)(int,int)> vecForFunc;
+
+vecForFunc.push_back(add);
+vecForFunc.push_back(divide);
+vecForFunc.push_back(mutiply);
+vecForFunc.push_back(substract);
