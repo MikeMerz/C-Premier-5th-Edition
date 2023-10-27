@@ -1,0 +1,14 @@
+Exercise 7.5: Provide operations in your Person class to return the name
+and address. Should these functions be const? Explain your choice.
+
+Answer:
+class Person
+{
+  std::string getName() const {return name;}
+  std::string getAddress() const {return address;}
+  
+  std::string name;
+  std::string address;
+}
+
+The functions should be const since they don't change the object on which they are called but only used to retrieve data from it.
