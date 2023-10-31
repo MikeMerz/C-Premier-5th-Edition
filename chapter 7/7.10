@@ -1,0 +1,5 @@
+Exercise 7.10: What does the condition in the following if statement do?
+if (read(read(cin, data1), data2))
+
+Answer:
+The condition checks that the cin stream is valid after reading data1 and data2, that data1 and data2 were read correctly.
