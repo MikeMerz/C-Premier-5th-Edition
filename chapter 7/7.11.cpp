@@ -2,14 +2,19 @@
 #include <string>
 /* Exercise 7.11: Add constructors to your Sales_data class and write a
 program to use each of the constructors */
-struct Sales_data {
+class Sales_data {
+    friend std::istream &read(std::istream &is, Sales_data &item);
+    friend std::ostream &print(std::ostream &os, const Sales_data &item);
+    friend Sales_data add(const Sales_data &lhs, const Sales_data &rhs);
+
+public:
     Sales_data() = default;
     Sales_data(const std::string &s): bookNo(s) { }
     Sales_data(const std::string &s, unsigned num, double price): bookNo(s), units_sold(num), revenue(price*num) { }
     Sales_data(std::istream &st);
     std::string isbn() const { return bookNo; }
     Sales_data &combine(const Sales_data &);
-
+private:
     std::string bookNo;
     unsigned units_sold = 0;
     double revenue = 0.0;
