@@ -1,0 +1,5 @@
+Exercise 7.25: Can Screen safely rely on the default versions of copy and
+assignment? If so, why? If not, why not?
+
+Answer:
+Yes, since all the members of Screen has their own default version of copy and assignment.
