@@ -1,0 +1,11 @@
+Exercise 7.33: What would happen if we gave Screen a size member
+defined as follows? Fix any problems you identify.
+
+pos Screen::size() const
+{
+ return height * width;
+}
+
+Answer:
+Outside of the class Screen scope pos will not be recognized and thus the program will not compile, we need to add 
+the scope of the pos definition for the program to compile, so changing to Screen::pos will fix the issue.
