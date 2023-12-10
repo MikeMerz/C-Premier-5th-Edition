@@ -1,0 +1,9 @@
+Exercise 7.20: When are friends useful? Discuss the pros and cons of using
+friends.
+
+Answer:
+Friends are useful for letting functions access to the private members of the class while not letting others the same access.
+Pros:
+Lets functions access the private members of the class.
+Cons:
+Changes to the function may require changes to the friend function as well.
