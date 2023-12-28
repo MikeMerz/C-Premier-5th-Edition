@@ -1,0 +1,13 @@
+//Exercise 7.49: For each of the three following declarations of combine,
+//explain what happens if we call i.combine(s), where i is a Sales_data
+//and s is a string:
+//(a) Sales_data &combine(Sales_data);
+//(b) Sales_data &combine(Sales_data&);
+//(c) Sales_data &combine(const Sales_data&) const;
+
+/*
+ * Answer:
+ * a) First a call to Sales_data(string) then call for combine.
+ * b) First a call to Sales_data(string) which will create temporary Sales_data and passing a refrence to it will cause undefined behaviour.
+ * c) The program will not compile since adding const to combine will prevent us from changing the state of Sales_data and thus we won't be able to perform the addition.
+ */
