@@ -1,0 +1,11 @@
+//Exercise 7.47: Explain whether the Sales_data constructor that takes a
+//string should be explicit. What are the benefits of making the
+//constructor explicit? What are the drawbacks?
+
+/*
+ * Answer:
+ * That constructor should be explicit since calling combine with a Sales_data object and astring doesn't have any logical
+ * meaning.
+ * Drawback is that we must call the constructor explicity.
+ * Benefit is that using explicit will help the logic of our program.
+ */
