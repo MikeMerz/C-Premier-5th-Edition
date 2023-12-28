@@ -1,0 +1,6 @@
+//Exercise 7.44: Is the following declaration legal? If not, why not?
+//vector<NoDefault> vec(10);
+
+
+ Answer:
+ The declaration is not legal since the declaration tries  to create 10 instances of NoDefault but because NoDefault doesn't have a default constructor.
