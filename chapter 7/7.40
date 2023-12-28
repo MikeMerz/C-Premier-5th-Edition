@@ -1,0 +1,22 @@
+Exercise 7.40: Choose one of the following abstractions (or an abstraction
+of your own choosing). Determine what data are needed in the class. Provide
+an appropriate set of constructors. Explain your decisions.
+(a) Book
+(b) Date
+(c) Employee
+(d) Vehicle
+(e) Object
+(f) Tree
+ Answer:
+ class Book
+ {
+ public:
+    Book():title(""),price(0),author(""),publishCompany(""),publishYear(0)
+    Book(const std::string &t, double p, const std::string &au, const std::string & puCompany,int year):
+    title(t), price(p), author(au), publishCompany(puCompany), publishYear(year)
+    private:
+    std::string title;
+    double price;
+    std::string author;
+    std::string publishCompany;
+    int publishYear;
