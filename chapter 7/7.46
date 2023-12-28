@@ -1,0 +1,19 @@
+//Exercise 7.46: Which, if any, of the following statements are untrue? Why?
+//(a) A class must provide at least one constructor.
+//(b) A default constructor is a constructor with an empty parameter list.
+//(c) If there are no meaningful default values for a class, the class should not
+//provide a default constructor.
+//(d) If a class does not define a default constructor, the compiler generates
+//one that initializes each data member to the default value of its associated
+//type.
+
+/*
+ * Answer:
+ * The statements that are not true are:
+ *
+ * b --> A default constructor is a constructor with an empty or only default value parameter list.
+ * c --> If the class hold members that can be default initiated then the symthesized constucor that the compiler will add will be enough in order to initliaze it, if not
+ * then we will need to add a constructor in which we will initalize the members;
+ * d --> The compiler will generate a default constructor only for classes that has no constructors at all.
+ *
+ */
