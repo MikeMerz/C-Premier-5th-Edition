@@ -1,0 +1,10 @@
+Exercise 7.37: Using the version of Sales_data from this section,
+determine which constructor is used to initialize each of the following
+variables and list the values of the data members in each object:
+Sales_data first_item(cin);--->Calls Sales_data(std::istream &is)
+int main() {
+ Sales_data next;  ---> Calls the default contructor, bookNo = "",units_sold=0,revenue =0.0
+ Sales_data last("9-999-99999-9"); ---> Calls Sales_data(std::string s = "") --> bookNo = 9-999-99999-9,units_sold=0,revenue =0.0
+}
+Answer:
+Sales_data first_item(cin);
