@@ -1,0 +1,7 @@
+//Exercise 7.51: Why do you think vector defines its single-argument
+//constructor as explicit, but string does not?
+
+/*
+ * vector uses explicit since calls that take vector as parameter would also accept types that can be converted to int while string doesn't 
+ * need this protection.
+ */
