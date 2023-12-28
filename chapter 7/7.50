@@ -1,0 +1,10 @@
+//Exercise 7.50: Determine whether any of your Person class constructors
+//should be explicit.
+
+/*
+ * Answer:
+ *  Person() = default;
+    Person(const std::string &name):name(name){} ---> Should be explicit.
+    Person(const std::string &name, const std::string &address):name(name), address(address){}
+    Person(std::istream &is); -->Should be explicit.
+ */
