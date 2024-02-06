@@ -1,4 +1,0 @@
-Exercise 9.48: Given the definitions of name and numbers on page 365,
-what does numbers.find(name) return?
-
-Since numbers doesn't contain a substr of name the function find will return -1.
