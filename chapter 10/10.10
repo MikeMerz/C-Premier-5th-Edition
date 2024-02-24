@@ -1,0 +1,8 @@
+Exercise 10.10: Why do you think the algorithms don’t change the size of
+containers?
+
+Answer:
+In my opinion it is because algorithms work with iterators so changing the size of the container might
+invalidate the iterators or reallocate the members which will hurt performance, in addition that way the
+algorithm is not depended on the container it operates on since different containers may have
+different methods of adding or removing elements.

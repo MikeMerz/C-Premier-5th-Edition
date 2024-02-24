@@ -1,0 +1,5 @@
+Exercise 10.23: How many arguments does bind take?
+
+Answer:
+Bind takes the first argument as the callable and then for each additional parameter bind will take as an argument
+the number of the placeholder and the argument itself, so it will take twice as much arguments for each parameter.

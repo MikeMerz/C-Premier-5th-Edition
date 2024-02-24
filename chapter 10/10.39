@@ -1,0 +1,7 @@
+Exercise 10.39: What kind of iterator does a list have? What about a
+vector?
+
+Answer:
+Vector supports random-access, Rational operators, subtraction operators and thus vector has Random-access iterator.
+
+List support two way travarse, derefrence and arrow operators, thus list has Bidirectional Iterator.

@@ -1,0 +1,7 @@
+Exercise 10.26: Explain the differences among the three kinds of insert
+iterators.
+
+Answer:
+back_inserter - uses push_back
+front_inserteer - uses push front
+insert - uses insert

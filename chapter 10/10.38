@@ -1,0 +1,38 @@
+Exercise 10.38: List the five iterator categories and the operations that each
+supports.
+
+Answer:
+
+1)Input Iterators supports:
+    * Prefix and postfix increment(++) in order to advance the iterator.
+    * Dereference  operator in order to read an element, may appear only on right side of assignment.
+    * Equality and inequality operators (!=, ==)
+    * Arrow operator(->) in order to Dereference and fetch a member from the object.
+    * A one pass iterator.
+
+2)Forward Iterators -
+    * Prefix and postfix increment(++) in order to advance the iterator.
+    * Dereference operator in order to read an element, may appear on right side of assignment.
+    * Arrow operator(->) in order to Dereference and fetch a member from the object.
+    * Equality and inequality operators (!=,==)
+    * Dereference  operator in order to read an element, may appear on left side of assignment.
+    * One pass iterator.
+
+3)Bidirectional Iterators, same as Forward Iterators but can reverse -
+    * Prefix and postfix increment(++) in order to advance the iterator.
+    * Dereference operator in order to read an element, may appear on right side of assignment.
+    * Arrow operator(->) in order to Dereference and fetch a member from the object.
+    * Equality and inequality operators (!=,==)
+    * Dereference  operator in order to read an element, may appear on left side of assignment.
+    * Prefix and postfix decrement(--) in order to reverse the iterator.
+
+4)Output Iterators -
+    * Dereference  operator in order to read an element, may appear only on left side of assignment.
+    * Prefix and postfix increment(++) in order to advance the iterator.
+
+5)Random-access Iterators, support all as Bidirectional and -
+    * Rational operators (<,>,>=,<=).
+    * Subtraction operator(-), which returns the distance between two iterators.
+    * Random-access operator([n]), which is equvilant to *(iter + n).
+    * Addition of subtraction operators(+=,-=,+,-) that when applied on an iterator and integral value
+      moves the iterator forward or backwards the integral amount of elements.

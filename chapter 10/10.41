@@ -1,0 +1,9 @@
+Exercise 10.41: Based only on the algorithm and argument names, describe
+the operation that the each of the following library algorithms performs:
+
+replace(beg, end, old_val, new_val); - replace all appearances of old_val with new_val in the origin container.
+replace_if(beg, end, pred, new_val); - replaces all elements in the container that return true for pred with new_val in the origin container.
+replace_copy(beg, end, dest, old_val, new_val); - copy the container to a container that start at dest but with each element
+that is equal to old_val is replaced with new_val.
+replace_copy_if(beg, end, dest, pred, new_val); -copy the container to a different container that starts at dest but with
+each element that returns true for pred is replaced with new_val.

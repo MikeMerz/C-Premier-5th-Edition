@@ -1,0 +1,10 @@
+Exercise 10.40: What kinds of iterators do you think copy requires? What
+about reverse or unique?
+
+Answer:
+I think copy requires two Input iterators since it traverses once and one way on the container, and an
+Output iterator for the destanation.
+
+I think reverse requires Bidirectional iterators.
+
+I think unique requires Forwards iterator.

@@ -1,0 +1,6 @@
+Exercise 10.4: Assuming v is a vector<double>, what, if anything, is
+wrong with calling accumulate(v.cbegin(), v.cend(), 0)?
+
+Answer:
+Since 0 will be treated as an int and the has double type, the program will still compile
+but the result will be truncated to an int and this will cause us to lose the percision.
