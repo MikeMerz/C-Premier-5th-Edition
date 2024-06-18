@@ -1,0 +1,72 @@
+Exercise 12.8: Explain what if anything is wrong with the following function.
+bool b() {
+int* p = new int;
+// ...
+return p;
+}
+
+Answer:
+Upon returning p will be implicity converted to bool so if the new operations did not fail true will be returned and the pointer will be lost.
+
+
+Exercise 12.9: Explain what happens in the following code:
+
+int *q = new int(42), *r = new int(100);
+r = q;
+auto q2 = make_shared<int>(42), r2 =
+make_shared<int>(100);
+r2 = q2;
+
+Answer:
+At first, r and q point to different ints, then when we assign r=q we lose the pointer
+of r then when we assign q2 to r2 the counter of r2 is zero so the object is destroyed.
+
+Exercise 12.10: Explain whether the following call to the process function
+defined on page 464 is correct. If not, how would you correct the call?
+
+shared_ptr<int> p(new int(42));
+process(shared_ptr<int>(p));
+
+Answer:
+The call is correct since calling shared_ptr on a shared_ptr will increase its count
+to 2 and the memory will remain intact.
+
+Exercise 12.11: What would happen if we called process as follows?
+
+process(shared_ptr<int>(p.get()));
+
+Answer:
+p.get() will return the object and a new shared_ptr will be created with ref count
+of 1 and when we return from process the ref count will decrease to 0 and the object will
+be destroyed.
+
+
+Exercise 12.12: Using the declarations of p and sp explain each of the
+following calls to process. If the call is legal, explain what it does. If the call
+is illegal, explain why:
+
+auto p = new int();
+auto sp = make_shared<int>();
+
+(a) process(sp);
+(b) process(new int());
+(c) process(p);
+(d) process(shared_ptr<int>(p));
+
+Answer:
+a)The call is legal, sp will be copied and thus its refrence counter will be 2 and after
+the call to process it will be reduced to 1.
+b)The call is illegal since new int() returns int* which cannot be implicitly converted to
+shared_ptr.
+c)The call is illegal for the same reason as b.
+d)The call is legal however after process the object that p points to will be destroyed.
+
+
+Exercise 12.13: What happens if we execute the following code?
+
+auto sp = make_shared<int>();
+auto p = sp.get();
+delete p;
+
+Answer:
+The program will run however when we exit the scope of sp we will get double free.

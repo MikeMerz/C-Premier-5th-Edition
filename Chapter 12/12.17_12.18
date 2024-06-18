@@ -1,0 +1,30 @@
+Exercise 12.17: Which of the following unique_ptr declarations are illegal
+or likely to result in subsequent program error? Explain what the problem is
+with each one.
+
+int ix = 1024, *pi = &ix, *pi2 = new int(2048);
+typedef unique_ptr<int> IntP;
+(a) IntP p0(ix);
+(b) IntP p1(pi);
+(c) IntP p2(pi2);
+(d) IntP p3(&ix);
+(e) IntP p4(new int(2048));
+(f) IntP p5(p2.get());
+
+Answer:
+a)The call is illegal since ix is an int and unique_ptr must get a pointer.
+b)The call is legal however ix is defined locally and will be destroyed when out of scope
+which will likely cause an error when we access p1.
+c)The call is legal.
+d)same as b.
+e)The call is legal.
+f)The call is legal however it will likely result in an error if p2 or p5 will be deleted
+and the other will try and access that object.
+
+
+Exercise 12.18: Why doesn’t shared_ptr have a release member?
+
+Answer:
+Since shared_ptr works with ref counts a release function would either remove the ref count and if we will
+access the returned pointer after all other refrences were freed we will have runtime error or we don't decrease the counter
+and may have a memory leak since that object's ref count may not reach 0.
