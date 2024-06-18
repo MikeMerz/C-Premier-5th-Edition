@@ -1,0 +1,8 @@
+Exercise 11.24: What does the following program do?
+map<int, int> m;
+m[0] = 1;
+
+Answer:
+Initialize a map with keys and values of type int.
+The second line looks for 0 in m, if it finds 0 it then changes it's value to 1 if 0 was not found
+it value initializes 0 and assign 1 to it.

@@ -1,0 +1,6 @@
+Exercise 11.19: Define a variable that you initialize by calling begin() on
+the multiset named bookstore from § 11.2.2 (p. 425). Write the
+variable’s type without using auto or decltype.
+
+Answer:
+multiset<Sales_data,bool (*)(const &Sales_data, const &Sales_data)>::const_iterator it = bookstore.begin();

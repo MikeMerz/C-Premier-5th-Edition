@@ -1,0 +1,8 @@
+Exercise 11.16: Using a map iterator write an expression that assigns a
+value to an element.
+
+Answer:
+map<int,int> ma;
+ma[2]=2;
+auto it = ma.begin();
+it->second = 10;

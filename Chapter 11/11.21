@@ -1,0 +1,9 @@
+Exercise 11.21: Assuming word_count is a map from string to size_t
+and word is a string, explain the following loop:
+
+while (cin >> word)
+++word_count.insert({word, 0}).first->second;
+
+Answer:
+First create a pair from word and 0 then derefrence the the first value of the pair <iterator,bool> that is returned
+by insert and increment the second value in the pair<string,size_t> of that word.

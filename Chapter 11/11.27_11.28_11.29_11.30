@@ -1,0 +1,28 @@
+Exercise 11.27: What kinds of problems would you use count to solve?
+When might you use find instead?
+
+Answer:
+I would use count when a key can have a number of values(using multimap) and find when a key can have only
+one value(map).
+
+Exercise 11.28: Define and initialize a variable to hold the result of calling
+find on a map from string to vector of int.
+
+Answer:
+std::map<std::string, int> ma;
+std::map<std::string,int >>::iterator it = ma.find();
+
+Exercise 11.29: What do upper_bound, lower_bound, and
+equal_range return when you pass them a key that is not in the container?
+
+Answer:
+upper_bound and lower_bound will return the first point at which that key can be inserted while preserving the order.
+equal_range will return a pair of iterators whose both values are end().
+
+Exercise 11.30: Explain the meaning of the operand pos.first->second
+used in the output expression of the final program in this section.
+
+Answer:
+pos - is a pair where first is the iterator returned from lower_bound and second is the one from upper_bound.
+pos.first - is the iterator returned by lower_bound refering to the first element with a matching key.
+pos.first->second - value part of iterator returned by lower_bound which holds the title

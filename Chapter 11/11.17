@@ -1,0 +1,11 @@
+Exercise 11.17: Assuming c is a multiset of strings and v is a vector
+of strings, explain the following calls. Indicate whether each call is legal:
+
+copy(v.begin(), v.end(), inserter(c, c.end())); --> Copy the elements from vector v into c using the insert function
+since multimap has an insert function the call is legal.
+copy(v.begin(), v.end(), back_inserter(c)); --> Copy the elements from v to multiset c using push_back, however multiset
+doesn't have a member function push_back so this call is illegal.
+copy(c.begin(), c.end(), inserter(v, v.end())); --> Copy the elements from c to vector v using insert since vector
+has insert this is legal.
+copy(c.begin(), c.end(), back_inserter(v)); --> Copy the elements from c to vector v using push_back since vector
+has insert this is legal.

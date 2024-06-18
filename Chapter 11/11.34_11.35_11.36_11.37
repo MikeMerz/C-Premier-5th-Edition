@@ -1,0 +1,38 @@
+Exercise 11.34: What would happen if we used the subscript operator
+instead of find in the transform function?
+
+Answer:
+First, changing the find function to subscript will not compile since we can only use the subscript operator on non const
+maps. Second, it will cause our function to add the key if it not already inside the map.
+
+
+Exercise 11.35: In buildMap, what effect, if any, would there be from
+rewriting
+
+trans_map[key] = value.substr(1);
+as trans_map.insert({key, value.substr(1)})?
+
+Answer:
+Using the subscript operator will cause us to overwrite the current value in the map so we will be left with the last
+occurrence of the that key.
+Using insert will prevent us from overwriting the value and thus we will be left with the first occurrence of the key.
+
+Exercise 11.36: Our program does no checking on the validity of either
+input file. In particular, it assumes that the rules in the transformation file are
+all sensible. What would happen if a line in that file has a key, one space,
+and then the end of the line? Predict the behavior and then check it against
+your version of the program.
+
+Answer:
+It will create a pair of key with a value of size 1 and thus it will not be added to our rules.
+
+Exercise 11.37: What are the advantages of an unordered container as
+compared to the ordered version of that container? What are the advantages
+of the ordered version?
+
+Answer:
+Advantages of the unordered container are that the search,insert,delete are amortized O(1) while the ordered container are O(logn)
+without any specific order.
+Advantages of the ordered container are that traversal is in a sorted manner that is defined by a supplied predicate
+or the default one if one is not granted, the search runtime is O(logn) while the insert and delete should be called
+rarely.
