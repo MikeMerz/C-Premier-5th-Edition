@@ -1,0 +1,18 @@
+Exercise 13.9: What is a destructor? What does the synthesized destructor
+do? When is a destructor synthesized?
+
+Answer:
+Destructor is a member function which starts with ~ and is called automatically when an object
+is destroyed, if there is no destructor defined than the compiler creates a synthesized destructor
+which is a destructor that has an empty body.
+
+Exercise 13.10: What happens when a StrBlob object is destroyed? What
+about a StrBlobPtr?
+
+Answer:
+StrBlob doesn't have a defined destructor so the compilers will create a synthesized one that only
+implicity calls the destructor of shared_ptr that will check the ref count and if that reaches 0 will
+call the destructor of vector.
+
+StrBlobPtr doesn't have a defined destructor so the compilers will create a synthesized one that only
+implicity calls the destructor of weak_ptr that doesn't free the memory of the vector.

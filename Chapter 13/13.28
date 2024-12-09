@@ -1,0 +1,63 @@
+Exercise 13.28: Given the following classes, implement a default constructor
+and the necessary copy-control members.
+(a)
+class TreeNode {
+    private:
+        std::string value;
+        int *count;
+        TreeNode *left;
+        TreeNode *right;
+};
+(b)
+class BinStrTree {
+    private:
+        TreeNode *root;
+};
+
+Answer:
+a)
+TreeNode():value(std::string()),count(new int(1)),left(nullptr),right(nullptr){};
+TreeNode(const TreeNode& rhs):value(rhs.value),count(++rhs),left(rhs.left),right(rhs.right){};
+TreeNode& operator=(const TreeNode& rhs)
+{
+    ++*rhs.count;
+    if(--count == 0)
+    {
+        if(left)
+            delete left;
+        if(right)
+            delete right;
+    }
+    value = rhs.value;
+    left = rhs.left;
+    right = rhs.right;
+    count = *rhs.count;
+    return *this;
+}
+~TreeNode()
+{
+    if(--count == 0)
+    {
+        if(left)
+            delete left;
+        if(right)
+            delete right;
+    }
+    delete count;
+
+}
+
+b)
+BinStrTree():root(new TreeNode())
+BinStrTree(const& BinStrTree rhs):root(new TreeNode(*rhs.root))
+BinStrTree& operator=(const BinStrTree& rhs)
+{
+    TreeNode node = new TreeNode(*rhs.root);
+    delete root;
+    root = node;
+    return *this;
+}
+~BinStrTree()
+{
+    delete root;
+}

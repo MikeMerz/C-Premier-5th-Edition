@@ -1,0 +1,15 @@
+Exercise 13.12: How many destructor calls occur in the following code
+fragment?
+
+bool fcn(const Sales_data *trans, Sales_data accum)
+{
+    Sales_data item1(*trans), item2(accum);
+    return item1.isbn() != item2.isbn();
+}
+
+Answer:
+There are 3 destructor calls when we exit fcn, 2 calls for item1 and item2 since they are defined locally
+when we exit fcn their destructor will be called, in addition since accum is copied by value
+it will be destroyed when exiting fcn.
+Since trans is a recived as a pointer the Sales_data object it points to will not be destroyed.
+

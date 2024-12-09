@@ -1,0 +1,33 @@
+Exercise 13.54: What would happen if we defined a HasPtr moveassignment
+operator but did not change the copy-and-swap operator? Write
+code to test your answer.
+
+Answer:
+When using std::move the compiler will have multiple functions that fit and so we will have ambiguous function call.
+
+
+Exercise 13.55: Add an rvalue reference version of push_back to your
+StrBlob.
+
+Answer:
+void push_back(std::string&& s) {data->push_back(std::move(s));}
+
+Exercise 13.56: What would happen if we defined sorted as:
+
+Foo Foo::sorted() const & {
+    Foo ret(*this);
+    return ret.sorted();
+}
+Answer:
+Defining sorted as above will cause an endless recursion since ret is a lvalue the version of
+sorted that will be called will not be sorted()&& as expected but sorted() const & and so the code
+will get stuck in an endless loop.
+
+Exercise 13.57: What if we defined sorted as:
+
+Foo Foo::sorted() const &
+{
+    return Foo(*this).sorted();
+}
+Answer:
+Foo(*this) will return a rvalue so the version that will be called is sorted() &&.

@@ -1,0 +1,7 @@
+Exercise 13.41: Why did we use postfix increment in the call to
+construct inside push_back? What would happen if it used the prefix
+increment?
+
+Answer:
+We used the postfix increment because we want to add the string at the location of first_free and only then move the iterator foward
+using the prefix increment will cause unconstructed areas in the memory.

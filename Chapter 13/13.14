@@ -1,0 +1,28 @@
+Exercise 13.14: Assume that numbered is a class with a default constructor
+that generates a unique serial number for each object, which is stored in a
+data member named mysn. Assuming numbered uses the synthesized copycontrol
+members and given the following function:
+
+void f (numbered s) { cout << s.mysn << endl; }
+what output does the following code produce?
+
+numbered a, b = a, c = b;
+f(a); f(b); f(c);
+
+Answer:
+f(a),f(b),f(c) will have the same output.
+
+Exercise 13.15: Assume numbered has a copy constructor that generates a
+new serial number. Does that change the output of the calls in the previous
+exercise? If so, why? What output gets generated?
+
+Answer:
+Yes it will effect the output since the copy constructor will be called each time we call f then s.mysn will
+be unique and will print the serial number of a with 3 added to it, then 4 and 5(a+3,a+4,a+5).
+
+Exercise 13.16: What if the parameter in f were const numbered&?
+Does that change the output? If so, why? What output gets generated?
+
+Answer:
+The output will change  from the serial number of a with 3 added to it, 4 and then 5, instead the serial number of a will
+be printed then serial number of a + 1 and serial number of a + 2 since we don't copy numbered when calling f.

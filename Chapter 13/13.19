@@ -1,0 +1,7 @@
+Exercise 13.19: Does your Employee class need to define its own versions
+of the copy-control members? If so, why? If not, why not? Implement
+whatever copy-control members you think Employee needs.
+
+Answer:
+Employee doesn't need to define its own versions of copy-control since the synthesized
+destructor will call the destructor of string and the same for assignment operator.

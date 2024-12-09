@@ -1,0 +1,21 @@
+Exercise 13.6: What is a copy-assignment operator? When is this operator
+used? What does the synthesized copy-assignment operator do? When is it
+synthesized?
+
+Answer:
+Copy-assignment operator is a member function: operator= which takes an argument of the class type and it
+controls how object are being copied.
+
+This operator is called when assigning.
+synthesized copy-assignment operator is an operator created by the compiler even if we don't define an operator=
+and it assigns each non static member of the right side of the operand to the corresponding member in the left hand
+operand using the copy-assignment operator of that class.
+
+Exercise 13.7: What happens when we assign one StrBlob to another?
+What about StrBlobPtrs?
+
+Answer:
+In both cases we implement operator= and thus the synthesized copy-assignment operator will be used and so for StrBlob
+the count of the shared_ptr will rise since we are calling it's assignment operator for data.
+StrBlobPtrs assignment will call the weak_ptr operator and thus the count will not increment also curr is of primitive type
+and it will just be copied.

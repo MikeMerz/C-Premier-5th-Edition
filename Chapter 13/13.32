@@ -1,0 +1,4 @@
+Exercise 13.32: Wou defining a swap function? If so, what is the benefit? If not, why not?
+
+Answer:
+There is no dynamic allocation in the pointer like version so there will be no benefit in a swap function.

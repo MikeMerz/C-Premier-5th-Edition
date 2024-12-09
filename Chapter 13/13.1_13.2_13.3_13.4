@@ -1,0 +1,44 @@
+Exercise 13.1: What is a copy constructor? When is it used?
+
+Answer:
+Copy constructor is a constructor that the first argument is a reference to to the class type and all other arguments
+has default values.
+
+It is used in a number of scenarios:
+1)When a function returns an object by value.
+2)When assigning, using the operator =.
+3)When a function has an argument that is passed by value(a non reference argument).
+4)When initialising using the following braces : {}.
+
+Exercise 13.2: Explain why the following declaration is illegal:
+
+Sales_data::Sales_data(Sales_data rhs);
+
+Answer:
+It is illegal since rhs is sent by value, before calling the constructor we would have to call the same constructor
+which will cause the constructor being called indefinitely.
+
+Exercise 13.3: What happens when we copy a StrBlob? What about
+StrBlobPtrs?
+
+Answer:
+When we copy StrBlob it will call the copy constructor for shared_ptr which will raise it's count while copying StrBlobPtr
+the copy constructor will be called which copied the pointer to the weak_ptr and so the count will stay the same.
+
+Exercise 13.4: Assuming Point is a class type with a public copy
+constructor, identify each use of the copy constructor in this program
+fragment:
+line 1: Point global;
+line 2: Point foo_bar(Point arg)
+line 3: {
+line 4: Point local = arg, *heap = new Point(global);
+line 5: *heap = local;
+line 6: Point pa[ 4 ] = { local, *heap };
+line 7: return *heap;
+}
+
+Answer:
+The copy constructor will be called on:
+line 2 --> foo_bar receives arg by value so the copy constructor of Point will be called before entering the function.
+line 4 --> when assigning arg to local the copy constructor will be called and when creating the object that heap will point to from global.
+line 6 --> when initialising pa from {local, *heap} and when copying local inside the {} braces.

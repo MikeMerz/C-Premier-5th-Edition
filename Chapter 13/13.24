@@ -1,0 +1,9 @@
+Exercise 13.24: What would happen if the version of HasPtr in this section
+didn’t define a destructor? What if HasPtr didn’t define the copy
+constructor?
+
+Answer:
+We would have a memory leak for each occurrence since the synthesized destructor would not delete ps itself but only the pointer.
+
+If HasPtr didn't define the copy constructor then the synthesized copy constructor would be called and it will only copy
+the pointer to ps but not the string itself.

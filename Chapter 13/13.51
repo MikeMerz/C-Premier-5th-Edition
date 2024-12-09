@@ -1,0 +1,17 @@
+Exercise 13.51: Although unique_ptrs cannot be copied, in § 12.1.5 (p.
+471) we wrote a clone function that returned a unique_ptr by value.
+Explain why that function is legal and how it works.
+
+Answer:
+In the clone function we return a unique_ptr that is about to be destroyed so the move operation is called instead of the copy operation
+and since unique_ptr are able to be moved
+
+
+Exercise 13.52: Explain in detail what happens in the assignments of the
+HasPtr objects on page 541. In particular, describe step by step what
+happens to values of hp, hp2, and of the rhs parameter in the HasPtr
+assignment operator.
+
+Answer:
+In the first assignment, hp = hp2, Copy constructor is called in order to copy hp2 to rhs,after which hp2 will hold
+not change and rhs will point to a different string with the same value

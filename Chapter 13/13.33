@@ -1,0 +1,8 @@
+Exercise 13.33: Why is the parameter to the save and remove members
+of Message a Folder&? Why didn’t we define that parameter as Folder?
+Or const Folder&?
+
+Answer:
+Defining it as Folder would have caused a call for Folder destructor when exiting save/remove since f is destroyed at
+the end of the function, defining it as const Folder& would have prevented us of changing f, since we add the message to
+f inside the function we need the ability to change f.

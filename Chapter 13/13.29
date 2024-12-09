@@ -1,0 +1,6 @@
+Exercise 13.29: Explain why the calls to swap inside swap(HasPtr&,
+HasPtr&) do not cause a recursion loop.
+
+Answer:
+The swap function in swap calls for the swap function for each data member and not for HasPtr's swap.
+
