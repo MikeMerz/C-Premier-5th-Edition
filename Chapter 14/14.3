@@ -1,0 +1,19 @@
+Exercise 14.3: Both string and vector define an overloaded == that can
+be used to compare objects of those types. Assuming svec1 and svec2 are
+vectors that hold strings, identify which version of == is applied in each
+of the following expressions:
+(a) "cobble" == "stone" --> operator== of string.
+(b) svec1[0] == svec2[0] --> operator== of string.
+(c) svec1 == svec2 --> operator== of vector.
+(d) "svec1[0] == "stone" -->
+
+Exercise 14.4: Explain how to decide whether the following should be class
+members:
+(a) %  --> Should not be class member because it is a Symmetric operator.
+(b) %= --> Should be class member because changing the state of the object.
+(c) ++ --> Should be class member since it is changing the state of the object.
+(d) -> --> Must be class member.
+(e) << --> Should not be class member but friend function.
+(f) && --> Should not be class member because it is a Symmetric operator.
+(g) == --> Should not be class member because it is a Symmetric operator.
+(h) () --> Must be class member.

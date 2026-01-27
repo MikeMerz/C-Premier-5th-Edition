@@ -1,0 +1,47 @@
+Exercise 14.10: Describe the behavior of the Sales_data input operator if
+given the following input:
+(a) 0-201-99999-9 10 24.95
+(b) 10 24.95 0-210-99999-9
+
+Answer:
+a) bookNo will be 0-201-99999-9, units sold will be 10 and price will be 24.95, this input is in the correct
+format and will be read successfully.
+
+
+b)bookNo will be 10, units sold 24.95 and price will be the value of 0-210-99999-9 converted to float, this
+input is not valid however it will be parsed any way.
+
+Exercise 14.11: What, if anything, is wrong with the following Sales_data
+input operator? What would happen if we gave this operator the data in the
+previous exercise?
+
+istream& operator>>(istream& in, Sales_data& s)
+{
+    double price;
+    in >> s.bookNo >> s.units_sold >> price;
+    s.revenue = s.units_sold * price;
+    return in;
+}
+
+Answer:
+Given the input of the last question, for option a there will be nothing wrong and the data will be parsed properly
+however for option b the data will still be parsed but price will hold an incorrect value.
+
+Exercise 14.13: Which other arithmetic operators (Table 4.1 (p. 139)), if
+any, do you think Sales_data ought to support? Define any you think the
+class should include.
+
+Answer:
+No other operators are needed.
+
+Exercise 14.14: Why do you think it is more efficient to define operator+ to call operator+= rather than the other way around?
+
+Answer:
+Since operator+ returns a new object with a new state while the compound operators modifies the object in place, it changes **FINISH THIS**
+
+Exercise 14.15: Should the class you chose for exercise 7.40 from § 7.5.1
+(p. 291) define any of the arithmetic operators? If so, implement them. If
+not, explain why not.
+
+Answer:
+No, since there is no "natural order" between books.

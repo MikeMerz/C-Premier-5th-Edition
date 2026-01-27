@@ -1,0 +1,90 @@
+Exercise 14.50: Show the possible class-type conversion sequences for the
+initializations of ex1 and ex2. Explain whether the initializations are legal or
+not.
+
+struct LongDouble {
+    LongDouble(double = 0.0);
+    operator double();
+    operator float();
+};
+LongDouble ldObj;
+int ex1 = ldObj;
+float ex2 = ldObj;
+
+Answer:
+ex1 --> int ex1 = (int)ldObj --> Path A: int ex1 = (int)(double)ldObj, Path B: int ex1 = (int)(float)ldObj (Two candidates) --> Thus call is ambiguous
+and the initialization is not legal.
+ex2 --> float ex2 = (float)ldObj --> Path A: float ex2 = (float)ldObj (exact match), Path B:float ex2 = (float)(double)ldObj
+--> Since Path A is an exact match the initialization will be legal.
+
+Exercise 14.51: Show the conversion sequences (if any) needed to call each
+version of calc and explain why the best viable function is selected.
+
+void calc(int);
+void calc(LongDouble);
+double dval;
+calc(dval); // which calc?
+
+Answer:
+Option 1: double --> int, promotion
+Option 2: double --> LongDouble, class-type conversion
+
+The order of choice is :
+1.exact match
+2.const conversion
+3.promotion
+4.arithmetic or pointer conversion
+5.class-type conversion
+
+Since option 1 is by integer promotion and is ranked 3 and option 2 is class-type conversion than option 1 is more viable
+and is selected.
+
+Exercise 14.52: Which operator+, if any, is selected for each of the
+addition expressions? List the candidate functions, the viable functions, and
+the type conversions on the arguments for each viable function:
+
+struct LongDouble {
+    LongDouble(double = 0.0);
+    operator double();
+    operator float();
+    // member operator+ for illustration purposes; + is usually a nonmember
+    LongDouble operator+(const SmallInt&);
+    // other members as in § 14.9.2 (p. 587)
+};
+LongDouble operator+(LongDouble&, double);
+SmallInt si;
+LongDouble ld;
+1)ld = si + ld;
+2)ld = ld + si;
+
+Answer:
+1)
+Candidate functions:
+LongDouble operator+(const SmallInt&);
+LongDouble operator+(LongDouble&, double);
+Viable functions:
+LongDouble operator+(const SmallInt&);
+LongDouble operator+(LongDouble&, double);
+Type conversions: Option A: LongDouble -> double/float -> int --> SmallInt --> ambiguous ,Option B: SmallInt -> int --> double -> LongDouble OR LongDouble -> double --> ambiguous
+2)
+Candidate functions:
+LongDouble operator+(LongDouble&, double);
+LongDouble operator+(const SmallInt&);
+Viable functions:
+LongDouble operator+(LongDouble&, double);
+LongDouble operator+(const SmallInt&);
+Type conversions:
+LongDouble --> double --> int --> SmallInt
+No conversion is needed for the second option and thus it will be chosen.
+
+Exercise 14.53: Given the definition of SmallInt on page 588, determine
+whether the following addition expression is legal. If so, what addition
+operator is used? If not, how might you change the code to make it legal?
+
+SmallInt s1;
+double d = s1 + 3.14;
+
+Answer:
+Ambiguous since s1 can be converted to int and then double OR 3.14 can be converted to int and then SmallInt.
+fix:
+double d = s1 + SmallInt(3.14);

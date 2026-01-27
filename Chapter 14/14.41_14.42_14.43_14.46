@@ -1,0 +1,54 @@
+Exercise 14.41: Why do you suppose the new standard added lambdas?
+Explain when you would use a lambda and when you would write a class
+instead
+
+Answer:
+I think the new standard added lambdas for a one time function, instead of writing a class from scratch for a single call
+a lambda function will do that, when calling a class more then a few times it is better to write the class itself.
+
+Exercise 14.42: Using library function objects and adaptors, define an
+expression to
+(a) Count the number of values that are greater than 1024
+(b) Find the first string that is not equal to pooh
+(c) Multiply all values by 2
+
+Answer:
+std::vector<int> vec;
+std::vector<std::string> vecStr;
+a)std::count_if(vec.begin(), vec.end(),std::bind(std::greater<int>(),std::placeholders::_1,1024));
+b)std::find_if(vecStr.begin(),vecStr.end(), std::bind(std::not_equal_to<std::string>(),std::placeholders::_1,"pooh"));
+c)std::transform(vec.begin(), vec.end(),vec.begin(), std::bind(std::multiplies<int>(),std::placeholders::_1,2));
+
+Exercise 14.43: Using library function objects, determine whether a given
+int value is divisible by any element in a container of ints.
+
+Answer:
+bool isDivisble(int input)
+{
+    std::vector<int> vec{2,3};
+    std::modulus<int> mod;
+    auto reverseMod = [&](int num){return mod(num,input) == 0;};
+    return std::any_of(vec.begin(),vec.end(),reverseMod);
+}
+
+Exercise 14.46: Explain whether defining these Sales_data conversion
+operators is a good idea and whether they should be explicit.
+
+Answer:
+It's a bad idea to define those operators since there is no obvious single mapping between the class type and the conversion type,
+if those operators are defined then they should be explicit to prevent implicit conversions.
+
+Exercise 14.47: Explain the difference between these two conversion
+operators:
+struct Integral {
+    operator const int(); ---> const will be ignored.
+    operator int() const; ---> const is applied to the object itself which insures that the state will not be changed.
+};
+
+Exercise 14.48: Determine whether the class you used in exercise 7.40 from
+§ 7.5.1 (p. 291) should have a conversion to bool. If so, explain why, and
+explain whether the operator should be explicit. If not, explain why not.
+
+Answer:
+****ANSWER ME ****
+
