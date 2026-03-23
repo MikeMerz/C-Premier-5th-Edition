@@ -1,0 +1,200 @@
+Exercise 15.1: What is a virtual member?
+
+Answer:
+Virtual member in a base class is an indication that derived classes need to define their version.
+
+Exercise 15.2: How does the protected access specifier differ from
+private?
+
+Answer:
+Protected - allows access for base class, friend function and  derived classes access.
+Private - allows access for base class and friend function.
+
+
+Exercise 15.4: Which of the following declarations, if any, are incorrect?
+Explain why.
+class Base { ... };
+
+(a) class Derived : public Derived { ... };
+(b) class Derived : private Base { ... };
+(c) class Derived : public Base;
+Answer:
+a)Incorrect since a class can't derive from itself.
+b)Incorrect, this is a definition not declaration.
+c)Incorrect, derived class is declared like any other class, it includes the class name but not its derivation list.
+
+Exercise 15.8: Define static type and dynamic type.
+
+Answer:
+Static type - An objects type at compile time.
+Dynamic type - An objects type at runtime.
+
+Exercise 15.9: When is it possible for an expression’s static type to differ
+from its dynamic type? Give three examples in which the static and dynamic
+type differ.
+
+Answer:
+1)Bulk_quote q; Quote qw = &q;
+2)Bulk_quote q; Quote &qw = q;
+3)Bulk_quote q; Quote qw = q;
+
+Exercise 15.10: Recalling the discussion from §8.1 (p. 311), explain how
+the program on page 317 that passed an ifstream to the Sales_data
+read function works.
+
+Answer:
+std::ifstream is derived from std::istream.
+
+Exercise 15.12: Is it ever useful to declare a member function as both
+override and final? Why or why not?
+
+Answer:
+It is useful since override means overriding the same virtual function in base class and final will prevent
+overriding this virtual function be classes that are lower in the hierarchy.
+
+Exercise 15.13: Given the following classes, explain each print function:
+class base {
+public:
+    string name() { return basename; }
+    virtual void print(ostream &os) { os << basename; }
+private:
+    string basename;
+};
+class derived : public base {
+public:
+    void print(ostream &os) { print(os); os << " " << i; }
+private:
+    int i;
+};
+If there is a problem in this code, how would you fix it?
+
+Answer:
+The base class print will print the basename, however the print in the derived class is
+missing the scope operator so when calling print(os), the derived version will be called
+which will cause an infinite loop;
+Fix:
+void print(ostream &os) { base::print(os); os << " " << i; }
+
+Exercise 15.14: Given the classes from the previous exercise and the
+following objects, determine which function is called at run time:
+base bobj; base *bp1 = &bobj; base &br1 = bobj;
+derived dobj; base *bp2 = &dobj; base &br2 = dobj;
+(a) bobj.print(); --> compile time.
+(b) dobj.print(); --> compile time.
+(c) bp1->name(); --> not virtual -> compile time.
+(d) bp2->name(); --> not virtual -> compile time
+(e) br1.print(); --> run time.
+(f) br2.print(); --> rune  time.
+
+Exercise 15.23: Assuming class D1 on page 620 had intended to override
+its inherited fcn function, how would you fix that class? Assuming you fixed
+the class so that fcn matched the definition in Base, how would the calls in
+that section be resolved?
+
+Answer:
+Changing int fcn(int); to int fcn(); to match the function in Base.
+Base bobj; D1 d1obj; D2 d2obj;
+Base *bp1 = &bobj, *bp2 = &d1obj, *bp3 = &d2obj;
+bp1->fcn(); // virtual call, will call Base::fcn at run time
+bp2->fcn(); // virtual call, will call D1::fcn at run time
+bp3->fcn(); // virtual call, will call D2::fcn at run time
+D1 *d1p = &d1obj; D2 *d2p = &d2obj;
+bp2->f2(); // error: Base has no member named f2
+d1p->f2(); // virtual call, will call D1::f2() at run time
+d2p->f2(); // virtual call, will call D2::f2() at run time
+
+Exercise 15.24: What kinds of classes need a virtual destructor? What
+operations must a virtual destructor perform?
+
+Answer:
+Classes that use inheritance will require virtual destructors to perform deallocation
+for any dynamic allocated memory in that class.
+
+Exercise 15.25: Why did we define a default constructor for Disc_quote?
+What effect, if any, would removing that constructor have on the behavior of
+Bulk_quote?
+
+Answer:
+There is a constructor with a number of arguments so the synthesized constructor will not be created
+and defined as deleted which will cause any default constructors of derived classes to also be deleted.
+
+Exercise 15.31: Given that s1, s2, s3, and s4 are all strings, determine
+what objects are created in the following expressions:
+
+(a) Query(s1) | Query(s2) & ~ Query(s3);
+(b) Query(s1) | (Query(s2) & ~ Query(s3));
+(c) (Query(s1) & (Query(s2)) | (Query(s3) & Query(s4)));
+
+Answer:
+a)OrQuery(AndQuery(NotQuery(WordQuery))) --> First NotQuery since ~ has precedence on OR,AND then AND Query since it has
+precedence on OR and only then the OrQuery.
+b)Since adding parentheses doesn't change the operator precedence the same object will be created as in (a).
+c)OrQuery(AndQuery(WordQuery(s1),WordQuery(s2), AndQuery(WordQuery(s3),WordQuery(s4)))) --> & has precedence on | so
+we will first create both & expressions and then the OR.
+
+Exercise 15.32: What happens when an object of type Query is copied,
+moved, assigned, and destroyed?
+
+Answer:
+When a Query is copied, moved, assigned or destroyed the synthesized versions will be called since it doesn't have any of
+the operations overridden.
+
+Exercise 15.33: What about objects of type Query_base?
+
+Answer:
+Since Object is derived from Query_base it will call that derived class type object's own copy control which in turn
+will call the  synthesized version of the copy control of Query_base.
+
+Exercise 15.34: For the expression built in Figure 15.3 (p. 638):
+(a) List the constructors executed in processing that expression.
+(b) List the calls to rep that are made from cout << q.
+(c) List the calls to eval made from q.eval().
+
+Answer:
+a)Query q = Query("fiery") & Query("bird") | Query("wind")
+Query("fiery")
+WordQuery("fiery")
+Query("bird")
+WordQuery("bird")
+Query("wind")
+WordQuery("wind")
+Query(string)
+BinaryQuery(Query,Query,"&")
+AndQuery(Query,Query)
+Query(std::shared_ptr)
+BinaryQuery(Query,Query,"|")
+OrQuery(Query,Query)
+Query(shared_ptr<Query_base>)
+
+b)cout << q
+Query::rep From <<
+BinaryQuery::rep
+Query::rep on lhs and rhs whereas rhs is WordQuery of "wind" and lhs is AndQuery for (Query("fiery") & Query("bird"))
+WordQuery::rep for "wind"
+Query::rep
+BinaryQuery::rep
+Query::rep
+WordQuery::rep for "fiery"
+Query::rep
+WordQuery::rep for "bird"
+Query::rep
+
+c)q.eval()
+Query::eval
+OrQuery::eval
+AndQuery::eval
+WordQuery::eval
+Exercise 15.37: What changes would your classes need if the derived
+classes had members of type shared_ptr<Query_base> rather than of type Query?
+
+Answer:
+1) Move rep to protected
+2)Change Query to std::shared_ptr<Query> in And,Or and Binary constructors.
+3)Change . access operator to -> access operator.
+4)Change Query to std::shared_ptr<Query> in overloaded functions.
+
+Exercise 15.38: Are the following declarations legal? If not, why not? If so, explain what the declarations mean.
+
+BinaryQuery a = Query("fiery") & Query("bird"); --> Illegal, BinaryQuery is an abstract class.
+AndQuery b = Query("fiery") & Query("bird"); --> Illegal, operator & returns a Query object which cannot be converted to AndQuery.
+OrQuery c = Query("fiery") & Query("bird"); -->  Illegal, operator | returns a Query object which cannot be converted to OrQuery.
