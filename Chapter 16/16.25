@@ -1,0 +1,41 @@
+Exercise 16.25: Explain the meaning of these declarations:
+
+extern template class vector<string>;
+template class vector<Sales_data>;
+
+Answer:
+extern template class vector<string> --> template instantiation declaration, extern signals to the compiler
+that there will be a nonextern use of this instantiation in a different file.
+template class vector<Sales_data>; --> template instantiation declaration, it will instantiate all members
+of vector.
+
+Exercise 16.26: Assuming NoDefault is a class that does not have a
+default constructor, can we explicitly instantiate vector<NoDefault>? If
+not, why not?
+
+Answer:
+No, since the declaration will instantiate all members of vector, including members functions
+whose default argument is the default constructor of the template parameter type.
+
+Exercise 16.27: For each labeled statement explain what, if any,
+instantiations happen. If a template is instantiated, explain why; if not,
+explain why not.
+
+template <typename T> class Stack { };
+void f1(Stack<char>); // (a)
+class Exercise {
+Stack<double> &rsd; // (b)
+Stack<int> si; // (c)
+};
+int main() {
+Stack<char> *sc; // (d)
+f1(*sc); // (e)
+int iObj = sizeof(Stack< string >); // (f)
+
+Answer:
+a) No instantiation -> f1 is declared but not used so no instantiation occurs.
+b) No instantiation -> since rsd is a reference it is not yet constructed.
+c) Instantiation of type int will occur since since si is constructed.
+d) No instantiation -> since sc is a pointer the Stack object is not constructed.
+e) Instantiation -> Direct call to f1 will cause f1 to instantiate.
+f) Instantiation -> Direct use of Stack<string> will cause Stack<string> to be instantiated.

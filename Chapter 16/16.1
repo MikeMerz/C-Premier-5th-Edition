@@ -1,0 +1,73 @@
+Exercise 16.1: Define instantiation.
+
+Answer:
+Instantiation is the process of creating a new instance of the a template using it's arguments rather then parameters.
+
+Exercise 16.9: What is a function template? What is a class template?
+
+Answer:
+Function template - is a blueprint for the same function for different types.
+Class template - is a blueprint for classes.
+
+Exercise 16.10: What happens when a class template is instantiated?
+
+Answer:
+The compiler uses  the template arguments in order to create a class instance of that argument.
+
+Exercise 16.11: The following definition of List is incorrect. How would you fix it?
+
+template <typename elemType> class ListItem;
+template <typename elemType> class List {
+    public:
+        List<elemType>();
+        List<elemType>(const List<elemType> &);
+        List<elemType>& operator=(const List<elemType> &);
+        ~List();
+        void insert(ListItem *ptr, elemType value);
+    private:
+        ListItem *front, *end;
+};
+
+Answer:
+The current definition is incorrect due to the following lines:
+void insert(ListItem *ptr, elemType value); - Because ListItem requires a type this line should
+be change to --> void insert(ListItem<elemType> *ptr, elemType value);
+Second line:
+ListItem *front, *end; - Because ListItem requires a type, this line should be changed to:
+ListItem<elemType> *front, *end;
+
+Exercise 16.17: What, if any, are the differences between a type parameter
+that is declared as a typename and one that is declared as a class? When
+must typename be used?
+
+Answer:
+Overall there no major differences however only typename supports using the scope operator.
+Typename must be used when we want to use a type member of a template parameter type.
+
+Exercise 16.18: Explain each of the following function template declarations
+and identify whether any are illegal. Correct each error that you find.
+
+(a) template <typename T, U, typename V> void f1(T, U, V);
+(b) template <typename T> T f2(int &T);
+(c) inline template <typename T> T foo(T, unsigned int*);
+(d) template <typename T> f4(T, T);
+(e) typedef char Ctype;
+    template <typename Ctype> Ctype f5(Ctype a);
+
+Answer:
+a) Declaration of template with 3 parameters --> Illegal since U is declared without a type.
+Fix:
+template <typename T, typename U, typename V> void f1(T, U, V);
+b) Declaration of template with a single template parameter named T --> Illegal since argument name T over shadows the
+template parameter.
+Fix:
+template <typename T> T f2(int &T1);
+c)Declaration of template with a single template parameter --> Illegal since inline should appear after the
+template parameter.
+Fix:
+template <typename T> inline T foo(T, unsigned int*);
+d) Declaration of template with single template parameter --> Illegal since f4 doesn't have return type.
+Fix:
+template <typename T> void f4(T, T);
+e) Declaration of template with single template parameter --> Legal, but Ctype will be overshadowed by
+the template parameter.

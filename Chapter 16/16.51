@@ -1,0 +1,8 @@
+Exercise 16.51: Determine what sizeof...(Args) and
+sizeof...(rest) return for each call to foo in this section.
+
+Answer:
+foo(i, s, 42, d); --> sizeof...(Args)  will return 2, sizeof...(rest) will return 3
+foo(s, 42, "hi"); --> sizeof...(Args)  will return 2, sizeof...(rest) will return 2
+foo(d, s); --> sizeof...(Args)  will return 2, sizeof...(rest) will return 1
+foo("hi"); --> sizeof...(Args)  will return 2, sizeof...(rest) will return 0
