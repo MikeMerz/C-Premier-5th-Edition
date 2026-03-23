@@ -1,0 +1,17 @@
+Exercise 17.19: Why is it okay to call m[4].str() without first checking
+whether m[4] was matched?
+
+Answer:
+Calling str is legal since we are comparing the delimiters, so if no there was no match an empty string will be returned
+
+Exercise 17.31: What would happen if we defined b and e inside the do
+loop of the game-playing program from this section?
+
+Answer:
+We would get the same number each time because a new engine will be created which will cause the first number
+is the sequence to be returned.
+
+Exercise 17.32: What would happen if we defined resp inside the loop?
+
+Answer:
+The code will not compile since resp will be unidentified in the loop condition.

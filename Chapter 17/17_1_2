@@ -1,0 +1,136 @@
+Exercise 17.1: Define a tuple that holds three int values and initialize the
+members to 10, 20, and 30.
+
+Answer:
+tuple<int, int, int> t{10,20,30};
+Exercise 17.2: Define a tuple that holds a string, a vector<string>,
+and a pair<string, int>.
+
+Answer:
+tuple<string, vector<string>, pair<string, int>> t;
+
+Exercise 17.9: Explain the bit pattern each of the following bitset objects
+contains:
+(a) bitset<64> bitvec(32);
+(b) bitset<32> bv(1010101);
+(c) string bstr; cin >> bstr; bitset<8>bv(bstr);
+
+Answer:
+a) A bitset of 64 bits is created where the fifth bit is 1 and all the others are 0.
+b)Bitset of 32 bits is created from the unsigned long long conversion of 1010101 afterwards it will be represented with the 32bits and all the bits
+after will be 0.
+c)If the input has more the 8 characters only the 8 rightmost bits will be used, if the input is less than 8 characters it will used
+as is.
+
+Exercise 17.10: Using the sequence 1, 2, 3, 5, 8, 13, 21, initialize a
+bitset that has a 1 bit in each position corresponding to a number in this
+sequence. Default initialize another bitset and write a small program to
+turn on each of the appropriate bits.
+
+Answer:
+bitset<32> b1;
+b1.set(1);
+b1.set(2);
+b1.set(3);
+b1.set(5);
+b1.set(8);
+b1.set(13);
+b1.set(21);
+
+vector<int> vec{1,2,3,5,8,13,21};
+bitset<32> b2;
+for(auto num : vec)
+{
+    b2.set(num);
+}
+
+Exercise 17.11: Define a data structure that contains an integral object to
+track responses to a true/false quiz containing 10 questions. What changes, if
+any, would you need to make in your data structure if the quiz had 100
+questions?
+
+Answer:
+struct quizRes
+{
+    bitset<10> answers;
+}
+
+Updating it to 100 questions will require us to update the bitset to 100 instead of 10.
+
+
+Exercise 17.12: Using the data structure from the previous question, write a
+function that takes a question number and a value to indicate a true/false
+answer and updates the quiz results accordingly.
+
+Answer:
+void updateGrade(quizRes &quiz, size_t index, bool val)
+{
+    if(index < quiz.answer.size() )
+        quiz.answers.set(index, val);
+}
+
+Exercise 17.13: Write an integral object that contains the correct answers
+for the true/false quiz. Use it to generate grades on the quiz for the data
+structure from the previous two exercises.
+
+Answer:
+size_t gradeQuiz(quizRes res, unsigned int correct)
+{
+    bitset<10> cur(correct);
+    bitset<10> wrong = res.answers ^ cur;
+    return res.answer.size() - wrong.count();
+}
+quizRes res;
+updateGrade(res,0,false);
+updateGrade(res,1,true);
+updateGrade(res,2,false);
+updateGrade(res,3,true);
+updateGrade(res,4,false);
+updateGrade(res,5,true);
+updateGrade(res,6,false);
+updateGrade(res,7,true);
+updateGrade(res,8,false);
+updateGrade(res,9,true);
+
+auto correctAns = 0b1010101010
+auto score = gradeQuiz(res,correctAns);
+
+Exercise 17.14: Write several regular expressions designed to trigger
+various errors. Run your program to see what output your compiler generates
+for each error.
+
+Answer:
+regex([z-a]);
+regex([a-z);
+
+Exercise 17.15: Write a program using the pattern that finds words that
+violate the “i before e except after c” rule. Have your program prompt the
+user to supply a word and indicate whether the word is okay or not. Test
+your program with words that do and do not violate the rule.
+
+Answer:
+regex r("[[:alpha:]]*[^c]ei[[:alpha:]]*", regex::icase);
+string s;
+cout << "Please input a word, enter q to quit" << endl;
+while(cin >> s && s != "q")
+{
+    if(regex_match(s,r))
+        cout << "MATCH!!!" << endl;
+    else
+        cout << "NOT MATCH!!!" << endl;
+    cout << "Please input a word, enter q to quit" << endl;
+}
+
+Exercise 17.16: What would happen if your regex object in the previous
+program were initialized with "[^c]ei"? Test your program using that
+pattern to see whether your expectations were correct.
+
+Answer:
+Only words that don't contain 'c' before ei will match.
+
+Exercise 17.23: Write a regular expression to find zip codes. A zip code can
+have five or nine digits. The first five digits can be separated from the
+remaining four by a dash.
+
+Answer:
+^\d{5}(-?\d{4})?$
