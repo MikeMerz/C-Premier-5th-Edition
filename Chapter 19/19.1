@@ -1,0 +1,139 @@
+Exercise 19.1: Write your own operator new(size_t) function using
+malloc and use free to write the operator delete(void*) function.
+
+Answer:
+void* operator new(std::size_t size)
+{
+    if(void* p = std::malloc(size))
+        return p;
+    throw std::bad_alloc
+}
+void operator delete(void* p) noexcept
+{
+    std::free(p);
+}
+
+Exercise 19.3: Given the following class hierarchy in which each class
+defines a public default constructor and virtual destructor:
+class A { /* . . . */ };
+class B : public A { /* . . . */ };
+class C : public B { /* . . . */ };
+class D : public B, public A { /* . . . */ };
+
+which, if any, of the following dynamic_casts fail?
+(a) A *pa = new C;
+B *pb = dynamic_cast< B* >(pa);
+(b) B *pb = new B;
+C *pc = dynamic_cast< C* >(pb);
+(c) A *pa = new D;
+B *pb = dynamic_cast< B* >(pa);
+
+Answer:
+a)C is Derived from B thus the dynamic_cast will succeeded.
+b)Fail.since the dynamic_cast work for a derived class to it's base class.
+c)Fail.D is derived from both A and B and B is also derived from A it would be ambiguous
+
+Exercise 19.4: Using the classes defined in the first exercise, rewrite the
+following code to convert the expression *pa to the type C&:
+
+if (C *pc = dynamic_cast< C* >(pa))
+// use C's members
+} else {
+// use A's members
+}
+
+Answer:
+try
+{
+    C &pc = dynamic_cast< C& >(pa);
+// use C's members
+} catch(std::bad_cast) {
+// use A's members
+}
+
+Exercise 19.5: When should you use a dynamic_cast instead of a virtual
+function?
+
+Answer:
+Only when defining a virtual function is not possible.
+
+Exercise 19.6: Write an expression to dynamically cast a pointer to a
+Query_base to a pointer to an AndQuery (§ 15.9.1, p. 636). Test the cast
+by using objects of AndQuery and of another query type. Print a statement
+indicating whether the cast works and be sure that the output matches your
+expectations.
+
+Answer:
+AndQuery* ap = dynamic_cast<AndQuery*>(qb);
+
+Exercise 19.7: Write the same cast, but cast a Query_base object to a
+reference to AndQuery. Repeat the test to ensure that your cast works
+correctly.
+Answer:
+AndQuery& ap = dynamic_cast<AndQuery&>(qb);
+Exercise 19.8: Write a typeid expression to see whether two
+Query_base pointers point to the same type. Now check whether that type
+is an AndQuery.
+Answer:
+typeid(qb1) == typeid(qb2) && typeid(qb1) == AndQuery;
+
+Exercise 19.11: What is the difference between an ordinary data pointer
+and a pointer to a data member?
+Answer:
+Ordinary data pointer hold the address of an object while a pointer to a data member identifies a member of class
+and can be used on objects of that type.
+
+Exercise 19.12: Define a pointer to member that can point to the cursor
+member of class Screen. Fetch the value of Screen::cursor through that
+pointer.
+
+Answer:
+Screen myScreen, *pScreen = &myScreen;
+auto s = myScreen.*cursor;
+
+Exercise 19.14: Is the following code legal? If so, what does it do? If not,
+why?
+auto pmf = &Screen::get_cursor;
+pmf = &Screen::get;
+
+Answer:
+The code is not legal since pointer to member functions require the same return type but
+get_cursor and get have different return types.
+
+Exercise 19.15: What is the difference between an ordinary function pointer
+and a pointer to a member function?
+
+Answer:
+Ordinary function pointer points to a standalone function while a pointer to member function points
+to a class member and can be called only on an object of that class.
+
+Exercise 19.17: Define a type alias for each distinct Screen member
+function type.
+
+Answer:
+using Act = char (Screen::*)() const;
+using Action = char (Screen::*)(Screen::pos, Screen::pos) const;
+using moveType = Screen& (Screen::*)(Screen::pos,Screen::pos);
+using nothing = void(Screen::*)();
+
+Exercise 19.18: Write a function that uses count_if to count how many
+empty strings there are in a given vector.
+
+Answer:
+std::vector<std::string> vec;
+std::count_if(vec.begin(), vec.end(), std::mem_fn(&std::string::empty));
+
+Exercise 19.19: Write a function that takes a vector<Sales_data> and
+finds the first element whose average price is greater than some given
+amount
+
+Answer:
+std::find_if(vec.begin(), vec.end(), [](Sales_data& data){return data.avg() > 10;});
+
+Exercise 19.26: Explain these declarations and indicate whether they are
+legal:
+
+extern "C" int compute(int *, int);
+extern "C" double compute(double *, double);
+
+Answer:
